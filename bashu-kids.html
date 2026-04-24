@@ -1,1 +1,588 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="ミニバス・小学生向けバッシュ診断。6つの質問でお子さんに最適な1足を提案。サイズ計算機能付き。保護者のための無料バスケシューズ診断ツール。">
+<title>バッシュ診断（保護者版）｜ミニバス・小学生向けバスケシューズ診断 - すぽろぐ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏀%3C/text%3E%3C/svg%3E">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',sans-serif;background:#f5f5f5;color:#1e293b;line-height:1.7;-webkit-text-size-adjust:100%}
+body{min-height:100vh;padding:20px 12px 40px}
+a{text-decoration:none;color:inherit}
+button,a{border:none;background:none;color:inherit;cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent}
 
+.page-header{max-width:560px;margin:0 auto 16px;text-align:center;padding:0 8px}
+.page-header-brand{font-size:11px;letter-spacing:3px;color:#64748b;font-weight:800;margin-bottom:4px}
+.page-header-brand a{color:#dc2626}
+.page-header-brand a:hover{text-decoration:underline}
+
+#bsh-app{background:#fff;color:#1e293b;border-radius:12px;max-width:560px;margin:0 auto;overflow:hidden;line-height:1.7;box-shadow:0 2px 20px rgba(0,0,0,.08);border:2px solid #f1f1f1}
+
+#bsh-app .bsh-head{background:#fff;padding:24px 24px 20px;position:relative;overflow:hidden;border-bottom:4px solid #dc2626}
+#bsh-app .bsh-head:before{content:"";position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:50%;background:rgba(220,38,38,.06);pointer-events:none}
+#bsh-app .bsh-head:after{content:"KIDS";position:absolute;right:20px;top:16px;font-size:58px;font-weight:900;color:rgba(220,38,38,.08);letter-spacing:-2px;font-style:italic;pointer-events:none;line-height:1}
+#bsh-app .bsh-head-tag{display:inline-block;background:#dc2626;color:#fff;font-size:10px;letter-spacing:3px;font-weight:800;margin-bottom:10px;padding:4px 10px;border-radius:4px;position:relative;z-index:1}
+#bsh-app .bsh-head-title{font-size:20px;font-weight:900;color:#1e293b;line-height:1.4;position:relative;z-index:1}
+#bsh-app .bsh-head-title em{font-style:normal;color:#dc2626}
+#bsh-app .bsh-head-sub{font-size:12px;color:#64748b;margin-top:6px;position:relative;z-index:1;letter-spacing:.3px}
+
+#bsh-app .bsh-tabs{display:flex;border-bottom:2px solid #f1f1f1;background:#fafafa}
+#bsh-app .bsh-tab{flex:1;padding:14px 8px;font-size:13px;font-weight:800;text-align:center;color:#94a3b8;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;letter-spacing:.5px}
+#bsh-app .bsh-tab.active{color:#dc2626;border-bottom-color:#dc2626;background:#fff}
+
+#bsh-app .bsh-body{padding:22px 20px 24px}
+#bsh-app .bsh-sec-label{font-size:10px;color:#dc2626;letter-spacing:3px;font-weight:800;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f1f1f1}
+#bsh-app .bsh-sec-label.sub{color:#1e293b;margin-top:28px}
+
+#bsh-app .bsh-q{margin-bottom:22px}
+#bsh-app .bsh-q-title{font-size:14px;font-weight:800;margin-bottom:6px;color:#1e293b;display:flex;align-items:center;gap:8px}
+#bsh-app .bsh-q-sub{font-size:11px;color:#94a3b8;margin-bottom:10px;padding-left:32px;line-height:1.5}
+#bsh-app .bsh-q-title .num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#dc2626;color:#fff;font-size:11px;font-weight:900;flex-shrink:0}
+#bsh-app .bsh-opts{display:flex;flex-wrap:wrap;gap:8px}
+#bsh-app .bsh-opt{padding:10px 16px;border-radius:8px;font-size:12px;font-weight:700;border:2px solid #e2e8f0;background:#fff;color:#64748b;transition:all .15s}
+#bsh-app .bsh-opt.sel{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+#bsh-app .bsh-opt:active{transform:scale(.97)}
+
+#bsh-app .bsh-go{width:100%;padding:16px;border-radius:8px;font-size:15px;font-weight:900;color:#fff;background:#dc2626;letter-spacing:2px;margin-top:12px;transition:all .15s;box-shadow:0 4px 14px rgba(220,38,38,.2)}
+#bsh-app .bsh-go:hover:not(:disabled){background:#b91c1c;transform:translateY(-1px);box-shadow:0 6px 18px rgba(220,38,38,.3)}
+#bsh-app .bsh-go:disabled{opacity:.3;cursor:default;box-shadow:none}
+#bsh-app .bsh-go:active:not(:disabled){transform:scale(.98)}
+
+#bsh-app .bsh-result-card{background:#fff;border-radius:10px;border:2px solid #f1f1f1;overflow:hidden;margin-bottom:14px;position:relative;transition:box-shadow .2s}
+#bsh-app .bsh-result-card:hover{box-shadow:0 2px 12px rgba(0,0,0,.06)}
+#bsh-app .bsh-result-card.top{border-color:#dc2626;border-width:3px;box-shadow:0 4px 20px rgba(220,38,38,.12)}
+#bsh-app .bsh-rc-badge{position:absolute;top:-1px;left:14px;background:#dc2626;color:#fff;font-size:10px;font-weight:900;padding:5px 12px 5px 10px;letter-spacing:1px;z-index:1}
+#bsh-app .bsh-rc-head{padding:14px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #f5f5f5}
+#bsh-app .bsh-result-card.top .bsh-rc-head{padding-top:28px;background:linear-gradient(180deg,#fef2f2 0%,#fff 100%)}
+#bsh-app .bsh-rc-rank{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#fff;flex-shrink:0}
+#bsh-app .bsh-rc-rank.g{background:#dc2626;width:36px;height:36px;font-size:16px}
+#bsh-app .bsh-rc-rank.s{background:#475569}
+#bsh-app .bsh-rc-rank.br{background:#94a3b8}
+#bsh-app .bsh-rc-info{flex:1;min-width:0}
+#bsh-app .bsh-rc-brand{font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:1.5px}
+#bsh-app .bsh-rc-name{font-size:15px;font-weight:900;color:#1e293b;line-height:1.3}
+#bsh-app .bsh-result-card.top .bsh-rc-name{font-size:17px}
+#bsh-app .bsh-rc-price{font-size:13px;font-weight:900;color:#dc2626;white-space:nowrap}
+#bsh-app .bsh-rc-body{padding:14px 16px}
+
+#bsh-app .bsh-rc-stars{display:flex;align-items:center;gap:6px;margin-bottom:10px;font-size:11px}
+#bsh-app .bsh-rc-stars .stars{color:#f59e0b;letter-spacing:1px}
+#bsh-app .bsh-rc-stars .score{font-weight:900;color:#1e293b}
+#bsh-app .bsh-rc-stars .count{color:#94a3b8}
+
+#bsh-app .bsh-rc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+#bsh-app .bsh-rc-tag{padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;background:#f8fafc;color:#475569;border:1px solid #e2e8f0}
+#bsh-app .bsh-rc-tag.hot{background:#fef2f2;color:#dc2626;border-color:#fecaca}
+
+#bsh-app .bsh-rc-desc{font-size:12px;line-height:1.8;color:#475569;margin-bottom:12px}
+#bsh-app .bsh-rc-size{font-size:11px;color:#64748b;margin-bottom:12px;padding:10px 12px;background:#f8fafc;border-radius:6px;border-left:3px solid #dc2626}
+#bsh-app .bsh-rc-size strong{color:#1e293b}
+#bsh-app .bsh-rc-size .size-tip{display:block;margin-top:4px;font-size:10px;color:#94a3b8}
+
+#bsh-app .bsh-rc-review{display:flex;align-items:center;justify-content:center;gap:4px;padding:9px;margin-bottom:10px;border-radius:6px;background:#f8fafc;border:1px solid #e2e8f0;font-size:11px;font-weight:700;color:#475569;transition:all .15s}
+#bsh-app .bsh-rc-review:hover{background:#fef2f2;color:#dc2626;border-color:#fecaca}
+
+#bsh-app .bsh-rc-links{display:flex;gap:8px}
+#bsh-app .bsh-rc-link{flex:1;padding:12px 8px;border-radius:6px;text-align:center;font-size:11px;font-weight:800;color:#fff;letter-spacing:.5px;transition:opacity .15s}
+#bsh-app .bsh-result-card.top .bsh-rc-link{padding:14px 8px;font-size:12px}
+#bsh-app .bsh-rc-link:hover{color:#fff;opacity:.9}
+#bsh-app .bsh-rc-link:active{transform:scale(.97)}
+#bsh-app .bsh-rc-link.amz{background:#FF9900;color:#111}
+#bsh-app .bsh-rc-link.amz:hover{color:#111}
+#bsh-app .bsh-rc-link.rktn{background:#BF0000}
+#bsh-app .bsh-rc-link.yahoo{background:#FF0033}
+
+#bsh-app .bsh-related{margin-top:24px;padding:18px;background:#fafafa;border-radius:10px;border:1px solid #f1f1f1}
+#bsh-app .bsh-related-title{font-size:13px;font-weight:900;color:#1e293b;margin-bottom:4px}
+#bsh-app .bsh-related-sub{font-size:11px;color:#64748b;margin-bottom:14px}
+#bsh-app .bsh-related-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#bsh-app .bsh-related-item{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px;text-align:center;transition:all .15s;display:block}
+#bsh-app .bsh-related-item:hover{border-color:#dc2626;color:inherit;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+#bsh-app .bsh-related-icon{font-size:28px;line-height:1;margin-bottom:8px}
+#bsh-app .bsh-related-name{font-size:12px;font-weight:800;color:#1e293b;margin-bottom:3px;line-height:1.4}
+#bsh-app .bsh-related-price{font-size:11px;font-weight:700;color:#dc2626}
+
+#bsh-app .bsh-retry{width:100%;padding:12px;border-radius:8px;font-size:12px;font-weight:800;color:#64748b;border:2px solid #e2e8f0;background:#fff;margin-top:16px;letter-spacing:.5px}
+#bsh-app .bsh-retry:hover{color:#dc2626;border-color:#dc2626}
+#bsh-app .bsh-note{margin-top:14px;font-size:10px;color:#94a3b8;line-height:1.7;text-align:center}
+
+#bsh-app .bsh-sz-input-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+#bsh-app .bsh-sz-input{width:130px;padding:12px 14px;border:2px solid #e2e8f0;border-radius:8px;font-size:22px;font-weight:900;text-align:center;color:#1e293b;font-family:inherit;outline:none;transition:border-color .2s;background:#fff}
+#bsh-app .bsh-sz-input:focus{border-color:#dc2626}
+#bsh-app .bsh-sz-unit{font-size:15px;font-weight:800;color:#64748b}
+#bsh-app .bsh-sz-hint{font-size:11px;color:#94a3b8;line-height:1.7;margin-bottom:18px;padding:10px 12px;background:#f8fafc;border-radius:6px}
+#bsh-app .bsh-sz-table{width:100%;border-collapse:collapse;margin-top:18px;font-size:12px}
+#bsh-app .bsh-sz-table thead{background:#1e293b}
+#bsh-app .bsh-sz-table th{color:#fff;font-size:11px;font-weight:800;padding:12px 8px;text-align:center;letter-spacing:.5px}
+#bsh-app .bsh-sz-table th:first-child{text-align:left;padding-left:14px}
+#bsh-app .bsh-sz-table td{padding:12px 8px;text-align:center;border-bottom:1px solid #f1f1f1;background:#fff;font-weight:600;color:#1e293b}
+#bsh-app .bsh-sz-table tr:last-child td{border-bottom:none}
+#bsh-app .bsh-sz-table td:first-child{font-weight:800;text-align:left;font-size:12px;padding-left:14px}
+#bsh-app .bsh-sz-table td.rec{background:#fef2f2;color:#dc2626;font-weight:900}
+#bsh-app .bsh-sz-table td.note-cell{font-size:10px;color:#94a3b8;text-align:left;font-weight:500;max-width:150px;line-height:1.5}
+#bsh-app .bsh-sz-tip{margin-top:16px;padding:14px 16px;background:#fff;border-radius:8px;border:2px solid #f1f1f1;border-left:4px solid #dc2626}
+#bsh-app .bsh-sz-tip-title{font-size:12px;font-weight:900;color:#dc2626;margin-bottom:6px;letter-spacing:.5px}
+#bsh-app .bsh-sz-tip-text{font-size:12px;line-height:1.8;color:#475569}
+#bsh-app .bsh-sz-tip-text strong{color:#1e293b;font-weight:800}
+#bsh-app .bsh-width-opts{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+#bsh-app .bsh-growth-opts{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+
+#bsh-app .bsh-popular-card{display:flex;align-items:center;gap:12px;padding:12px;background:#fff;border:2px solid #f1f1f1;border-radius:8px;margin-bottom:8px;text-decoration:none;color:inherit;transition:all .15s;display:block}
+#bsh-app .bsh-popular-card:hover{border-color:#dc2626;color:inherit;transform:translateX(2px)}
+#bsh-app .bsh-popular-inner{display:flex;align-items:center;gap:12px}
+#bsh-app .bsh-popular-rank{width:28px;height:28px;border-radius:50%;background:#f1f1f1;color:#64748b;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0}
+#bsh-app .bsh-popular-rank.top{background:#dc2626;color:#fff}
+#bsh-app .bsh-popular-info{flex:1;min-width:0}
+#bsh-app .bsh-popular-brand{font-size:9px;color:#94a3b8;font-weight:700;letter-spacing:1px}
+#bsh-app .bsh-popular-name{font-size:13px;font-weight:800;color:#1e293b;line-height:1.3}
+#bsh-app .bsh-popular-meta{font-size:10px;color:#64748b;margin-top:2px}
+#bsh-app .bsh-popular-price{font-size:12px;font-weight:900;color:#dc2626;white-space:nowrap}
+
+#bsh-app .bsh-article-cta{display:block;margin-top:20px;padding:16px;border-radius:10px;background:linear-gradient(135deg,#16a34a 0%,#22c55e 100%);color:#fff;text-align:center;text-decoration:none;transition:all .15s;box-shadow:0 2px 8px rgba(22,163,74,.2)}
+#bsh-app .bsh-article-cta:hover{color:#fff;transform:translateY(-1px);box-shadow:0 4px 14px rgba(22,163,74,.3)}
+#bsh-app .bsh-article-cta-label{font-size:10px;color:#fef08a;letter-spacing:2px;font-weight:800;margin-bottom:4px}
+#bsh-app .bsh-article-cta-text{font-size:13px;font-weight:800}
+#bsh-app .bsh-article-cta-arrow{font-size:11px;margin-top:2px;opacity:.9}
+
+.page-footer{max-width:560px;margin:20px auto 0;text-align:center;padding:0 8px;font-size:11px;color:#94a3b8;line-height:1.8}
+.page-footer a{color:#64748b;text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+<div class="page-header-brand"><a href="BLOG_HOME_URL">すぽろぐ</a> / バッシュ診断（保護者版）</div>
+</div>
+
+<div id="bsh-app">
+<div class="bsh-head">
+<div class="bsh-head-tag">MINI BASKETBALL SHOES FINDER · FOR PARENTS</div>
+<div class="bsh-head-title">👦 お子さんにぴったりの<br><em>バッシュ</em>を見つけよう</div>
+<div class="bsh-head-sub">幼稚園〜中学生向け 保護者のためのバッシュ診断</div>
+</div>
+<div class="bsh-tabs" id="bsh-tabs"></div>
+<div class="bsh-body" id="bsh-body"></div>
+</div>
+
+<div class="page-footer">
+このツールは <a href="BLOG_HOME_URL">すぽろぐ</a> が提供しています。<br>
+中学生以上のプレーヤーには <a href="bashu-pro.html">バッシュ診断 PRO</a> がおすすめです。<br>
+© すぽろぐ
+</div>
+
+<script>
+(function(){
+
+var SHOES=[
+  {
+    id:"upcourt6",brand:"ASICS",name:"UPCOURT 6 GS",price:"4,500〜6,500円",
+    grade:["kinder","low","mid","high"],activity:["casual","club","minibas"],
+    priority:["value","fit","durable"],width:["normal","wide"],budget:[1,2],usage:["first","second","multi"],
+    tags:["コスパ最強","定番入門","幅広対応"],
+    desc:"ASICSの大人気エントリーモデル。はじめてのバッシュとして最も選ばれている1足で、日本人の足型に合わせた設計が特徴。軽くて動きやすく、幅広のお子さんにも対応。",
+    sizing:"実寸＋1.0〜1.5cm",sizetip:"成長を見越して大きめを。ひも調整でフィット感を補正できます。",
+    rating:4.7,reviews:3240,sizeCm:[17,24]
+  },
+  {
+    id:"gelhoop-jr",brand:"ASICS",name:"GELHOOP V16 ジュニア",price:"7,000〜10,000円",
+    grade:["mid","high","jhs"],activity:["club","minibas"],
+    priority:["cushion","fit","durable"],width:["normal","wide"],budget:[2,3],usage:["second"],
+    tags:["部活定番","クッション◎","本格派"],
+    desc:"大人用GELHOOPのジュニア版。ミニバスで本格的に活動する子どもに。GELクッションが着地時の膝・足首への衝撃をしっかり吸収し、長時間の練習もサポート。",
+    sizing:"実寸＋0.5〜1.0cm",sizetip:"ミニバスでの激しい動きを想定し、やや余裕を持たせると安心です。",
+    rating:4.8,reviews:1890,sizeCm:[20,25]
+  },
+  {
+    id:"wavedrive-jr",brand:"MIZUNO",name:"WAVE DRIVE NEXT ジュニア",price:"6,000〜8,500円",
+    grade:["kinder","low","mid","high","jhs"],activity:["casual","club","minibas"],
+    priority:["durable","cushion","fit"],width:["normal","wide"],budget:[2],usage:["first","second"],
+    tags:["幅広対応","安定感","コスパ"],
+    desc:"MIZUNOのロングセラーバッシュジュニア版。幅広・甲高のお子さんにも対応する設計が人気。グリップ力が高く、体育館での急な方向転換もしっかり支える。",
+    sizing:"実寸＋0.5〜1.0cm",sizetip:"幅広設計なので、甲高のお子さんも比較的ゆったり履けます。",
+    rating:4.6,reviews:1120,sizeCm:[17,25]
+  },
+  {
+    id:"teamhustle",brand:"NIKE",name:"Team Hustle D 11 GS",price:"5,500〜8,000円",
+    grade:["low","mid","high","jhs"],activity:["casual","club","minibas"],
+    priority:["light","design","fit"],width:["narrow","normal"],budget:[1,2],usage:["first","second"],
+    tags:["軽量","デザイン◎","子ども人気"],
+    desc:"NIKEの定番キッズバッシュ。軽量でデザイン性が高く、子どもが「これがいい！」と喜ぶ見た目が魅力。ベーシックな設計で長く使えるのも保護者に嬉しいポイント。",
+    sizing:"実寸＋1.0〜1.5cm（細め・小さめ）",sizetip:"NIKEは全体的に細め・小さめなので、いつもより大きめを選ぶと安心です。",
+    rating:4.6,reviews:2580,sizeCm:[19,25]
+  },
+  {
+    id:"jordan-access",brand:"Jordan",name:"Jordan Access GS",price:"9,000〜13,000円",
+    grade:["high","jhs"],activity:["club","minibas"],
+    priority:["design","light","fit"],width:["narrow","normal"],budget:[3],usage:["second"],
+    tags:["Jordanブランド","デザイン最強","本格派"],
+    desc:"憧れのJordanブランドのキッズモデル。デザインで子どものモチベーションがぐっと上がる。ミニバス高学年の本格プレーヤーにぴったり。軽量でクッション性も十分。",
+    sizing:"実寸＋1.0cm（細め）",sizetip:"JordanブランドはNIKE同様細めです。足幅が広めのお子さんは要注意。",
+    rating:4.7,reviews:876,sizeCm:[21,25]
+  },
+  {
+    id:"ownthegame-kids",brand:"adidas",name:"Ownthegame 2.0 キッズ",price:"4,500〜6,500円",
+    grade:["kinder","low","mid","high"],activity:["casual","club"],
+    priority:["value","design","light"],width:["normal"],budget:[1,2],usage:["first","multi"],
+    tags:["コスパ","デザイン◎","軽量"],
+    desc:"adidasのエントリーモデルキッズ版。カラフルなデザインと手頃な価格が人気。カジュアルに履けるシンプルな設計で、はじめてのバッシュにも、サブ用にも重宝する。",
+    sizing:"実寸＋1.0〜1.5cm（やや細め）",sizetip:"adidasはやや細め。幅広のお子さんは別モデルがおすすめです。",
+    rating:4.5,reviews:1340,sizeCm:[16,24]
+  },
+  {
+    id:"surge-kids",brand:"UNDER ARMOUR",name:"UA Surge 4 AC キッズ",price:"5,000〜7,500円",
+    grade:["kinder","low","mid","high"],activity:["casual","club"],
+    priority:["light","durable","value"],width:["narrow","normal"],budget:[1,2],usage:["first","second","multi"],
+    tags:["軽量","耐久性◎","コスパ"],
+    desc:"UNDER ARMOURの軽量キッズモデル。すばしっこく動き回る子どもに合わせた軽量設計。頑丈なアウトソールで長く使えるのも保護者に嬉しいポイント。",
+    sizing:"実寸＋0.5〜1.0cm（やや細め）",sizetip:"タウンユースにも対応できる万能さが魅力。サイズはやや細めです。",
+    rating:4.5,reviews:654,sizeCm:[17,24]
+  },
+  {
+    id:"precision6",brand:"NIKE",name:"Nike Precision 6 GS",price:"5,000〜7,000円",
+    grade:["kinder","low","mid"],activity:["casual","club"],
+    priority:["value","cushion","fit"],width:["normal"],budget:[1,2],usage:["first","multi"],
+    tags:["グリップ◎","コスパ","ベーシック"],
+    desc:"NIKEのコスパ重視エントリーモデル。しっかりとしたグリップ力と適度なクッションを低価格で実現。低学年のはじめてのバッシュとして幅広く選ばれている。",
+    sizing:"実寸＋1.0cm",sizetip:"NIKEサイズ感は細め・小さめ。普段のスニーカーより大きめで。",
+    rating:4.4,reviews:987,sizeCm:[17,24]
+  },
+  {
+    id:"quantum-jr",brand:"ASICS",name:"QUANTUM LYTE ジュニア",price:"8,000〜11,000円",
+    grade:["high","jhs"],activity:["minibas","club"],
+    priority:["light","cushion","fit"],width:["narrow","normal"],budget:[2,3],usage:["second"],
+    tags:["超軽量","本格派","ミニバス対応"],
+    desc:"ASICSの上位グレードジュニアモデル。超軽量素材と高機能クッションで、本格的なプレーをするミニバス高学年に最適。足への負担を最小限に抑えながら高いパフォーマンスを発揮。",
+    sizing:"実寸＋0.5〜1.0cm",sizetip:"上位モデルのためフィット感が高く、他ASICSより少し小さめに感じることも。",
+    rating:4.7,reviews:432,sizeCm:[21,25]
+  },
+  {
+    id:"nb-bb550-kids",brand:"New Balance",name:"BB550 キッズ",price:"7,000〜10,000円",
+    grade:["mid","high","jhs"],activity:["casual","club"],
+    priority:["design","cushion","fit"],width:["normal","wide"],budget:[2],usage:["second"],
+    tags:["トレンド","おしゃれ","クッション"],
+    desc:"人気急上昇中のNB BB550のキッズ版。レトロなデザインで今最もおしゃれなバッシュとして話題。クッション性も高く、デザインで子どものやる気を引き出したい保護者に。",
+    sizing:"実寸＋0.5〜1.0cm（幅広め）",sizetip:"New Balanceは比較的幅広め。甲高のお子さんにもフィットしやすいです。",
+    rating:4.6,reviews:723,sizeCm:[19,25]
+  }
+];
+
+var RELATED=[
+  {id:"kids-socks",icon:"🧦",name:"キッズ用バスケソックス",price:"1,000〜2,500円"},
+  {id:"kids-insole",icon:"👣",name:"子ども用インソール",price:"1,500〜3,500円"},
+  {id:"kids-ball",icon:"🏀",name:"5号ボール（小学生用）",price:"3,000〜7,000円"},
+  {id:"kids-bag",icon:"🎒",name:"バスケ用バッグ（ジュニア）",price:"2,500〜5,000円"}
+];
+
+var BRANDS_SIZE=[
+  {brand:"ASICS",logo:"🇯🇵",diff:0,note:"日本メーカー。実寸通り〜+0.5cm。幅広対応モデルあり。"},
+  {brand:"MIZUNO",logo:"🇯🇵",diff:0,note:"日本メーカー。実寸通り。やや幅広め。"},
+  {brand:"adidas",logo:"🇩🇪",diff:0.5,note:"やや細め・小さめ。+0.5cm推奨。"},
+  {brand:"NIKE / Jordan",logo:"🇺🇸",diff:0.5,note:"細め・小さめ。+0.5〜1.0cm推奨。"},
+  {brand:"UNDER ARMOUR",logo:"🇺🇸",diff:0.5,note:"やや細め。+0.5cm推奨。"},
+  {brand:"New Balance",logo:"🇺🇸",diff:0,note:"幅広め設計。実寸通り〜+0.5cm。"}
+];
+
+var tab="diag";
+var dState={grade:"",activity:"",priority:"",width:"",budget:"",usage:""};
+var szVal="";
+var szWidth="normal";
+var szGrowth="1.0";
+
+function render(){
+  renderTabs();
+  if(tab==="diag")renderDiag();
+  else renderSize();
+}
+
+function renderTabs(){
+  var h='<button class="bsh-tab'+(tab==="diag"?" active":"")+'" data-t="diag">👟 バッシュ診断</button>';
+  h+='<button class="bsh-tab'+(tab==="size"?" active":"")+'" data-t="size">📏 サイズ計算</button>';
+  document.getElementById("bsh-tabs").innerHTML=h;
+  document.querySelectorAll(".bsh-tab").forEach(function(b){
+    b.onclick=function(){tab=this.getAttribute("data-t");render();window.scrollTo({top:0,behavior:"smooth"})};
+  });
+}
+
+function optBtn(group,val,label,sel){
+  return'<button class="bsh-opt'+(sel?" sel":"")+'" data-g="'+group+'" data-v="'+val+'">'+label+'</button>';
+}
+
+function starsHTML(rating,reviews){
+  var full=Math.floor(rating);
+  var half=rating-full>=0.3?1:0;
+  var s="";
+  for(var i=0;i<full;i++)s+="★";
+  if(half)s+="☆";
+  for(var i=full+half;i<5;i++)s+="☆";
+  return'<div class="bsh-rc-stars"><span class="stars">'+s+'</span><span class="score">'+rating.toFixed(1)+'</span><span class="count">('+reviews.toLocaleString()+'件のレビュー)</span></div>';
+}
+
+function renderDiag(){
+  var el=document.getElementById("bsh-body");
+  if(dState._result){renderDiagResult();return;}
+  var h='<div class="bsh-sec-label">6つの質問でお子さんに最適な1足を診断</div>';
+
+  h+='<div class="bsh-q"><div class="bsh-q-title"><span class="num">1</span>お子さんの学年は？</div>';
+  h+='<div class="bsh-q-sub">学年に合わせた足の強さ・活動量を考慮します</div>';
+  h+='<div class="bsh-opts">';
+  h+=optBtn("grade","kinder","🌸 幼稚園（年中〜年長）",dState.grade==="kinder");
+  h+=optBtn("grade","low","🌱 小学校 低学年（小1〜小2）",dState.grade==="low");
+  h+=optBtn("grade","mid","🏀 小学校 中学年（小3〜小4）",dState.grade==="mid");
+  h+=optBtn("grade","high","⭐ 小学校 高学年（小5〜小6）",dState.grade==="high");
+  h+=optBtn("grade","jhs","🔥 中学生",dState.grade==="jhs");
+  h+='</div></div>';
+
+  h+='<div class="bsh-q"><div class="bsh-q-title"><span class="num">2</span>バスケの活動レベルは？</div>';
+  h+='<div class="bsh-q-sub">活動頻度と目的に合わせます</div>';
+  h+='<div class="bsh-opts">';
+  h+=optBtn("activity","casual","🎮 体育・遊びで使う（週1〜2回程度）",dState.activity==="casual");
+  h+=optBtn("activity","club","🏫 スクール・クラブで活動中（週2〜3回）",dState.activity==="club");
+  h+=optBtn("activity","minibas","🏆 ミニバスチームで本格活動（週3回以上）",dState.activity==="minibas");
+  h+='</div></div>';
+
+  h+='<div class="bsh-q"><div class="bsh-q-title"><span class="num">3</span>バッシュ選びで一番大切にすることは？</div>';
+  h+='<div class="bsh-q-sub">保護者の目線で一番重視するポイントを選んでください</div>';
+  h+='<div class="bsh-opts">';
+  h+=optBtn("priority","durable","🔩 丈夫さ・長持ち（すぐ壊れない）",dState.priority==="durable");
+  h+=optBtn("priority","cushion","🛡️ 足への優しさ（クッション・ケガ予防）",dState.priority==="cushion");
+  h+=optBtn("priority","light","🪶 軽さ（動きやすさ優先）",dState.priority==="light");
+  h+=optBtn("priority","design","✨ デザイン（子どもが喜ぶ見た目）",dState.priority==="design");
+  h+=optBtn("priority","value","💰 コスパ（なるべく費用を抑えたい）",dState.priority==="value");
+  h+=optBtn("priority","fit","✋ フィット感（足にぴったり合うもの）",dState.priority==="fit");
+  h+='</div></div>';
+
+  h+='<div class="bsh-q"><div class="bsh-q-title"><span class="num">4</span>お子さんの足の幅は？</div>';
+  h+='<div class="bsh-q-sub">普段の靴のフィット感を参考に</div>';
+  h+='<div class="bsh-opts">';
+  h+=optBtn("width","narrow","細め 🦶",dState.width==="narrow");
+  h+=optBtn("width","normal","普通 👣",dState.width==="normal");
+  h+=optBtn("width","wide","幅広・甲高 👉",dState.width==="wide");
+  h+=optBtn("width","idk","❓ よくわからない",dState.width==="idk");
+  h+='</div></div>';
+
+  h+='<div class="bsh-q"><div class="bsh-q-title"><span class="num">5</span>ご予算は？</div>';
+  h+='<div class="bsh-q-sub">価格帯で候補を絞り込みます</div>';
+  h+='<div class="bsh-opts">';
+  h+=optBtn("budget","1","〜5,000円（お試し・サブ用）",dState.budget==="1");
+  h+=optBtn("budget","2","5,000〜8,000円（コスパ重視）",dState.budget==="2");
+  h+=optBtn("budget","3","8,000〜12,000円（しっかり選びたい）",dState.budget==="3");
+  h+=optBtn("budget","4","12,000円〜（本格派・とことん選ぶ）",dState.budget==="4");
+  h+='</div></div>';
+
+  h+='<div class="bsh-q"><div class="bsh-q-title"><span class="num">6</span>何足目のバッシュですか？</div>';
+  h+='<div class="bsh-q-sub">目的に合わせて最適なモデルを絞り込みます</div>';
+  h+='<div class="bsh-opts">';
+  h+=optBtn("usage","first","🌟 はじめての1足",dState.usage==="first");
+  h+=optBtn("usage","second","🏀 2足目以降（もっと本格的に）",dState.usage==="second");
+  h+=optBtn("usage","multi","📦 消耗品として複数購入したい",dState.usage==="multi");
+  h+='</div></div>';
+
+  var ready=dState.grade&&dState.activity&&dState.priority&&dState.width&&dState.budget&&dState.usage;
+  h+='<button class="bsh-go" id="bsh-go"'+(ready?'':' disabled')+'>お子さんにぴったりの1足を見る →</button>';
+  h+='<div class="bsh-note">※ 表示される価格は参考値です。販売サイトで最新価格をご確認ください。</div>';
+
+  el.innerHTML=h;
+  document.querySelectorAll(".bsh-opt").forEach(function(b){
+    b.onclick=function(){dState[this.getAttribute("data-g")]=this.getAttribute("data-v");render();};
+  });
+  var go=document.getElementById("bsh-go");
+  if(go&&ready)go.onclick=function(){dState._result=true;render();window.scrollTo({top:0,behavior:"smooth"});};
+}
+
+function scoreShoe(s){
+  var sc=0;
+  if(s.grade.indexOf(dState.grade)>=0)sc+=3;
+  if(s.activity.indexOf(dState.activity)>=0)sc+=3;
+  if(s.priority.indexOf(dState.priority)>=0)sc+=3;
+  if(dState.width&&dState.width!=="idk"){
+    if(s.width.indexOf(dState.width)>=0)sc+=3;
+    else sc-=2;
+  }
+  var b=parseInt(dState.budget);
+  if(s.budget.indexOf(b)>=0)sc+=3;
+  if(b===4&&s.budget.indexOf(3)>=0)sc+=2;
+  if(s.usage.indexOf(dState.usage)>=0)sc+=2;
+  return sc;
+}
+
+function shoeCard(s,rank){
+  var h='<div class="bsh-result-card'+(rank===0?" top":"")+'">';
+  if(rank===0)h+='<div class="bsh-rc-badge">🏆 BEST MATCH</div>';
+  var ranks=["g","s","br"];
+  var rankLabels=["1","2","3"];
+  h+='<div class="bsh-rc-head">';
+  h+='<div class="bsh-rc-rank '+ranks[rank]+'">'+rankLabels[rank]+'</div>';
+  h+='<div class="bsh-rc-info"><div class="bsh-rc-brand">'+s.brand+'</div><div class="bsh-rc-name">'+s.name+'</div></div>';
+  h+='<div class="bsh-rc-price">'+s.price+'</div>';
+  h+='</div>';
+  h+='<div class="bsh-rc-body">';
+  h+=starsHTML(s.rating,s.reviews);
+  h+='<div class="bsh-rc-tags">';
+  s.tags.forEach(function(t,i){h+='<span class="bsh-rc-tag'+(rank===0&&i===0?" hot":"")+'">'+t+'</span>';});
+  h+='</div>';
+  h+='<div class="bsh-rc-desc">'+s.desc+'</div>';
+  h+='<div class="bsh-rc-size">📏 サイズ目安：<strong>'+s.sizing+'</strong>';
+  h+='<span class="size-tip">💡 '+s.sizetip+'</span></div>';
+  h+='<a class="bsh-rc-review" href="ARTICLE_REVIEW_KIDS_'+s.id+'" target="_blank">📝 このバッシュの詳しいレビューを読む →</a>';
+  h+='<div class="bsh-rc-links">';
+  h+='<a class="bsh-rc-link amz" href="AFFILIATE_AMAZON_KIDS_'+s.id+'" target="_blank" rel="nofollow noopener">Amazonで見る</a>';
+  h+='<a class="bsh-rc-link rktn" href="AFFILIATE_RAKUTEN_KIDS_'+s.id+'" target="_blank" rel="nofollow noopener">楽天市場で見る</a>';
+  h+='<a class="bsh-rc-link yahoo" href="AFFILIATE_YAHOO_KIDS_'+s.id+'" target="_blank" rel="nofollow noopener">Yahoo!で見る</a>';
+  h+='</div></div></div>';
+  return h;
+}
+
+function relatedSection(){
+  var h='<div class="bsh-related">';
+  h+='<div class="bsh-related-title">🛒 一緒に揃えたいキッズギア</div>';
+  h+='<div class="bsh-related-sub">バッシュと合わせて揃えると練習がさらに楽しくなる</div>';
+  h+='<div class="bsh-related-grid">';
+  RELATED.forEach(function(r){
+    h+='<a class="bsh-related-item" href="AFFILIATE_AMAZON_KIDS_'+r.id+'" target="_blank" rel="nofollow noopener">';
+    h+='<div class="bsh-related-icon">'+r.icon+'</div>';
+    h+='<div class="bsh-related-name">'+r.name+'</div>';
+    h+='<div class="bsh-related-price">'+r.price+'</div>';
+    h+='</a>';
+  });
+  h+='</div></div>';
+  return h;
+}
+
+function renderDiagResult(){
+  var scored=SHOES.map(function(s){return{shoe:s,score:scoreShoe(s)};}).sort(function(a,b){return b.score-a.score;});
+  var top=scored.slice(0,3);
+  var el=document.getElementById("bsh-body");
+  var h='<div class="bsh-sec-label">YOUR BEST MATCH</div>';
+  top.forEach(function(item,i){h+=shoeCard(item.shoe,i);});
+  h+=relatedSection();
+  h+='<a class="bsh-article-cta" href="ARTICLE_KIDS_GUIDE">';
+  h+='<div class="bsh-article-cta-label">もっと詳しく知りたい方へ</div>';
+  h+='<div class="bsh-article-cta-text">📘 ミニバス・小学生のバッシュ完全ガイド</div>';
+  h+='<div class="bsh-article-cta-arrow">サイズ選びのコツ・学年別おすすめも →</div>';
+  h+='</a>';
+  h+='<button class="bsh-retry" id="bsh-retry">← 条件を変えてもう一度</button>';
+  h+='<div class="bsh-note">※ 購入リンクをクリックすると当サイトに紹介料が入る場合があります（価格に変動はありません）。<br>※ サイズは目安です。お子さんの足を実際に測り、できれば試着をおすすめします。</div>';
+  el.innerHTML=h;
+  document.getElementById("bsh-retry").onclick=function(){
+    dState={grade:"",activity:"",priority:"",width:"",budget:"",usage:""};
+    render();window.scrollTo({top:0,behavior:"smooth"});
+  };
+}
+
+function popularShoeCard(s,rank){
+  var label=rank===0?"🏆 ":"";
+  return'<a class="bsh-popular-card" href="AFFILIATE_AMAZON_KIDS_'+s.id+'" target="_blank" rel="nofollow noopener">'+
+    '<div class="bsh-popular-inner">'+
+    '<div class="bsh-popular-rank'+(rank===0?" top":"")+'">'+(rank+1)+'</div>'+
+    '<div class="bsh-popular-info">'+
+    '<div class="bsh-popular-brand">'+s.brand+'</div>'+
+    '<div class="bsh-popular-name">'+label+s.name+'</div>'+
+    '<div class="bsh-popular-meta">★'+s.rating.toFixed(1)+' ('+s.reviews.toLocaleString()+'件) / '+s.tags.slice(0,2).join("・")+'</div>'+
+    '</div>'+
+    '<div class="bsh-popular-price">'+s.price+'</div>'+
+    '</div>'+
+    '</a>';
+}
+
+function renderSize(){
+  var el=document.getElementById("bsh-body");
+  var h='<div class="bsh-sec-label">KIDS FOOT MEASUREMENT</div>';
+
+  h+='<div style="margin-bottom:18px">';
+  h+='<div class="bsh-q-title" style="font-size:14px;font-weight:900;margin-bottom:10px"><span class="num">1</span>お子さんの足の実寸（足長）を入力</div>';
+  h+='<div class="bsh-sz-input-row"><input class="bsh-sz-input" id="bsh-sz-val" type="number" step="0.5" min="13" max="27" placeholder="20.0" value="'+szVal+'" inputmode="decimal"><span class="bsh-sz-unit">cm</span></div>';
+  h+='<div class="bsh-sz-hint">💡 かかとから最も長い指先までの長さ。紙の上に足を置いてペンで印をつけて測れます。成長を見越したサイズ選びに活用してください。</div>';
+  h+='</div>';
+
+  h+='<div class="bsh-q" style="margin-bottom:14px"><div class="bsh-q-title" style="font-size:14px;font-weight:900;margin-bottom:10px"><span class="num">2</span>足幅</div>';
+  h+='<div class="bsh-width-opts">';
+  h+=optBtn("szw","narrow","細め",szWidth==="narrow");
+  h+=optBtn("szw","normal","普通",szWidth==="normal");
+  h+=optBtn("szw","wide","幅広・甲高",szWidth==="wide");
+  h+='</div></div>';
+
+  h+='<div class="bsh-q" style="margin-bottom:18px"><div class="bsh-q-title" style="font-size:14px;font-weight:900;margin-bottom:10px"><span class="num">3</span>成長の余裕</div>';
+  h+='<div class="bsh-q-sub" style="padding-left:32px;margin-bottom:10px">子どもの足は3〜6ヶ月で約0.5〜1cm成長します</div>';
+  h+='<div class="bsh-growth-opts">';
+  h+=optBtn("szg","1.0","1.0cm（標準・3ヶ月程度）",szGrowth==="1.0");
+  h+=optBtn("szg","1.5","1.5cm（大きめ・半年程度）",szGrowth==="1.5");
+  h+='</div></div>';
+
+  h+='<div id="bsh-sz-results"></div>';
+  el.innerHTML=h;
+
+  var inp=document.getElementById("bsh-sz-val");
+  if(inp){inp.oninput=function(){szVal=this.value;updateSizeResults();}}
+
+  document.querySelectorAll('[data-g="szw"]').forEach(function(b){
+    b.onclick=function(){
+      szWidth=this.getAttribute("data-v");
+      document.querySelectorAll('[data-g="szw"]').forEach(function(btn){
+        btn.classList.toggle("sel",btn.getAttribute("data-v")===szWidth);
+      });
+      updateSizeResults();
+    };
+  });
+
+  document.querySelectorAll('[data-g="szg"]').forEach(function(b){
+    b.onclick=function(){
+      szGrowth=this.getAttribute("data-v");
+      document.querySelectorAll('[data-g="szg"]').forEach(function(btn){
+        btn.classList.toggle("sel",btn.getAttribute("data-v")===szGrowth);
+      });
+      updateSizeResults();
+    };
+  });
+
+  updateSizeResults();
+}
+
+function updateSizeResults(){
+  var resultsEl=document.getElementById("bsh-sz-results");
+  if(!resultsEl)return;
+  var foot=parseFloat(szVal);
+  var growth=parseFloat(szGrowth)||1.0;
+  var h="";
+  if(foot>=13&&foot<=27){
+    h+='<table class="bsh-sz-table"><thead><tr><th>ブランド</th><th>推奨サイズ</th><th>メモ</th></tr></thead><tbody>';
+    BRANDS_SIZE.forEach(function(b){
+      var rec=foot+b.diff+growth;
+      if(szWidth==="wide"&&b.diff>0)rec+=0.5;
+      var recStr=rec.toFixed(1)+"cm";
+      var isRec=(szWidth==="wide"&&b.diff>0);
+      var noteStr=b.note;
+      if(szWidth==="wide"&&b.diff>0)noteStr="⚠️ 幅広は+0.5cm追加推奨。";
+      h+='<tr><td>'+b.logo+' '+b.brand+'</td><td class="'+(isRec?"rec":"")+'">'+recStr+'</td><td class="note-cell">'+noteStr+'</td></tr>';
+    });
+    h+='</tbody></table>';
+
+    h+='<div class="bsh-sz-tip"><div class="bsh-sz-tip-title">📝 子どものバッシュサイズ選びのコツ</div><div class="bsh-sz-tip-text">';
+    h+='子どもの足は<strong>3〜6ヶ月で約0.5〜1cm成長</strong>します。大きすぎる靴は転倒の原因になるため、成長の余裕は<strong>最大1.5cm</strong>が目安です。';
+    h+='購入前は必ず両足を実測し、左右差がある場合は<strong>大きい方の足</strong>に合わせてください。';
+    h+='</div></div>';
+
+    var matching=SHOES.filter(function(s){return foot>=s.sizeCm[0]&&foot<=s.sizeCm[1];})
+      .sort(function(a,b){return(b.reviews*b.rating)-(a.reviews*a.rating);})
+      .slice(0,3);
+    if(matching.length>0){
+      h+='<div class="bsh-sec-label sub">👟 このサイズで人気のバッシュ TOP3</div>';
+      h+='<div style="font-size:11px;color:#64748b;margin-bottom:12px">お子さんの足サイズに合うモデルをレビュー数の多い順で表示しています</div>';
+      matching.forEach(function(s,i){h+=popularShoeCard(s,i);});
+      h+='<a class="bsh-article-cta" href="ARTICLE_KIDS_SIZE_GUIDE">';
+      h+='<div class="bsh-article-cta-label">サイズ選びをもっと詳しく</div>';
+      h+='<div class="bsh-article-cta-text">📘 子どものバッシュサイズ完全ガイド</div>';
+      h+='<div class="bsh-article-cta-arrow">ブランド別の特徴・試着チェックポイントも →</div>';
+      h+='</a>';
+    }
+  }
+  h+='<div class="bsh-note" style="margin-top:14px">※ 同じブランドでもモデルによってサイズ感は異なります。できれば実際にお店で試着することをおすすめします。</div>';
+  resultsEl.innerHTML=h;
+}
+
+render();
+})();
+</script>
+</body>
+</html>
