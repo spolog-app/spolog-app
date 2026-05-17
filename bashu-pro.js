@@ -248,7 +248,7 @@ function renderDiagResult(){
   h+=relatedSection();
   h+='<a class="bsh-article-cta" href="ARTICLE_COMPARE_PRO">';
   h+='<div class="bsh-article-cta-label">📘 2026年最新版</div>';
-  h+='<div class="bsh-article-cta-text">バッシュおすすめ17選</div>';
+  h+='<div class="bsh-article-cta-text">バッシュおすすめ22選</div>';
   h+='<div class="bsh-article-cta-arrow">ミニバス・中学生・高校生・社会人におすすめモデルを紹介 →</div>';
   h+='</a>';
   h+='<button class="bsh-retry" id="bsh-retry">← 条件を変えてもう一度</button>';
