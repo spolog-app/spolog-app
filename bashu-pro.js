@@ -2,28 +2,32 @@
 var SHOES=[
 {id:"gelhoop",brand:"ASICS",name:"GELHOOP V17",price:"11,000〜16,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[2,3],width:["normal","wide"],priority:["light","fit"],player:"",tags:["部活定番","軽量","3ウィズ展開"],desc:"中高生の部活で圧倒的シェアを誇る定番。V17で軽量性とクッション性が更に向上。NARROW/STANDARD/EXTRA WIDEの3ウィズ展開で日本人の足型に最適化。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",sizeCm:[22,29],image:"PRODUCT_IMAGE_gelhoop"},
 {id:"gelburst",brand:"ASICS",name:"GELBURST 28",price:"13,000〜18,000円",level:["beginner","intermediate"],style:["all","power"],budget:[2,3],width:["normal","wide"],priority:["cushion","fit"],player:"",tags:["安定感","クッション◎","オールラウンド"],desc:"GELHOOPに並ぶASICSの主力モデル。GELクッションでハードな練習にも対応。スピードと安定性を両立した即戦力モデル。",sizing:"+0cm〜+0.5cm",sizeCm:[23,29],image:"PRODUCT_IMAGE_gelburst"},
-{id:"nova",brand:"ASICS",name:"NOVA SURGE 3",price:"13,000〜19,500円",level:["intermediate","advanced"],style:["power","all"],budget:[3],width:["normal","wide"],priority:["cushion","durable"],player:"",tags:["クッション最強","パワープレー","リバウンド向け"],desc:"FF BLAST PLUS搭載の高反発クッション。リバウンドなど高さが求められるプレーヤー向け。蹴りだし部分を最も厚く設計し、より高いジャンプを実現。",sizing:"+0cm〜+0.5cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_nova"},
+{id:"nova",brand:"ASICS",name:"NOVA SURGE 3",price:"13,000〜19,500円",level:["intermediate","advanced"],style:["power","all"],budget:[3],width:["normal","wide"],priority:["cushion","durable"],player:"watanabe",tags:["渡邊雄太愛用","クッション最強","リバウンド向け"],desc:"【渡邊雄太着用モデル】FF BLAST PLUS搭載の高反発クッション。千葉ジェッツの渡邊雄太など日本人トップ選手も愛用。リバウンドなど高さが求められるプレーヤー向け、厚めのソールで高いジャンプを実現。",sizing:"+0cm〜+0.5cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_nova"},
 {id:"curry-pro",brand:"UNDER ARMOUR",name:"Curry 13",price:"19,000〜23,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","grip","player"],player:"curry",tags:["カリー愛用","UA最終モデル","HOVR+"],desc:"【UA最終Curryモデル】HOVR+クッションとUA Flowアウトソールの集大成。2025年11月にカリーがUAから独立し、本作が両者最後の作品。",sizing:"+0.5cm〜+1.0cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_curry-pro"},
 {id:"lebron-pro",brand:"NIKE",name:"LeBron 23",price:"28,000〜32,000円",level:["advanced"],style:["power","all"],budget:[3],width:["normal"],priority:["cushion","player","design"],player:"lebron",tags:["レブロン愛用","23年目記念","フラッグシップ"],desc:"NBA入り23年目を記念した第23作。レブロンの最終メインシグネチャーになる可能性大。Crown Containment Systemで王の地位を象徴するデザイン。",sizing:"+0.5cm〜+1.0cm",sizeCm:[25,32],image:"PRODUCT_IMAGE_lebron-pro"},
-{id:"kd",brand:"NIKE",name:"KD18",price:"20,000〜24,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","fit","player"],player:"kd",tags:["KD愛用","フィット感最強","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Cushlon 3.0＋Air Zoomで爆発的な動きをサポート。",sizing:"+0.5cm〜+1.0cm",sizeCm:[25,31],image:"https://images-fe.ssl-images-amazon.com/images/I/41PmxG9xA6L._SL500_.jpg",amzUrl:"https://af.moshimo.com/af/c/click?a_id=2438530&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0GPD3R7KZ"},
+{id:"kd",brand:"NIKE",name:"KD18",price:"20,000〜24,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","fit","player"],player:"kd",tags:["KD愛用","フィット感最強","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Cushlon 3.0＋Air Zoomで爆発的な動きをサポート。",sizing:"+0.5cm〜+1.0cm",sizeCm:[25,31],amzHtml:'<a href="//af.moshimo.com/af/c/click?a_id=2438530&amp;p_id=170&amp;pc_id=185&amp;pl_id=4062&amp;url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0GPD3R7KZ" rel="nofollow"><img src="https://images-fe.ssl-images-amazon.com/images/I/41PmxG9xA6L._SL500_.jpg" alt=""><br>[ナイキ] KD18 GI EP スタジアムグリーン/ブラック IU3109-300 26.0cm</a>'},
 {id:"luka",brand:"Jordan",name:"Luka 4",price:"17,000〜20,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["player","design","grip"],player:"luka",tags:["ドンチッチ愛用","レイカーズ","IsoPlate"],desc:"ルカ・ドンチッチ第4作。アップグレードIsoPlateシステムで横方向の安定性を強化。Cushlon 3.0＋Air Zoomで万能対応。",sizing:"+0.5cm",sizeCm:[24,31],image:"PRODUCT_IMAGE_luka"},
 {id:"sabrina",brand:"NIKE",name:"Sabrina 3",price:"18,000〜21,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","player","design"],player:"sabrina",tags:["サブリナ愛用","NBA使用率No.1級","男女兼用"],desc:"WNBAスター、サブリナ・イオネスクの第3作。前作Sabrina 2はKobe 6 Protroに次ぐNBA使用率第2位。ミッドフットケーブルシステムで足のロックダウン性◎。",sizing:"+0.5cm",sizeCm:[22,28],image:"PRODUCT_IMAGE_sabrina"},
 {id:"harden",brand:"adidas",name:"Harden Vol.10",price:"22,000〜25,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["player","grip","fit"],player:"harden",tags:["ハーデン愛用","10作目記念","ステップバック向け"],desc:"ジェームズ・ハーデン第10作（10年目記念）。フォアフット・ヒール専用ラジアルパッド搭載。スピードと安定性のバランスに優れる。",sizing:"+0.5cm",sizeCm:[25,31],image:"PRODUCT_IMAGE_harden"},
 {id:"crazyfly",brand:"adidas",name:"Dame X",price:"12,000〜14,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[2,3],width:["normal"],priority:["player","light","design"],player:"dame",tags:["リラード愛用","$90破格","コスパ最強"],desc:"【$90の破格】デイミアン・リラード第10作。adidas Basketballシグネチャー史上最も手頃。Lightstrikeミッドソール、ストレッチウーブンアッパー採用。",sizing:"+0.5cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_crazyfly"},
-{id:"wade",brand:"Li-Ning",name:"Way of Wade 12",price:"25,000〜30,000円",level:["intermediate","advanced"],style:["all","power"],budget:[3],width:["normal"],priority:["player","design","durable"],player:"wade",tags:["ウェイド愛用","Li-Ning Boom","通好み"],desc:"D・ウェイド第12作（リーニン社）。Boom／カーボンファイバープレート／GCU搭載。中国ブランド製でNBA選手も愛用する性能派。",sizing:"+0cm〜+0.5cm",sizeCm:[25,31],image:"PRODUCT_IMAGE_wade"}
+{id:"wade",brand:"Li-Ning",name:"Way of Wade 12",price:"25,000〜30,000円",level:["intermediate","advanced"],style:["all","power"],budget:[3],width:["normal"],priority:["player","design","durable"],player:"wade",tags:["ウェイド愛用","Li-Ning Boom","通好み"],desc:"D・ウェイド第12作（リーニン社）。Boom／カーボンファイバープレート／GCU搭載。中国ブランド製でNBA選手も愛用する性能派。",sizing:"+0cm〜+0.5cm",sizeCm:[25,31],image:"PRODUCT_IMAGE_wade"},
+{id:"cons-togashi",brand:"CONVERSE",name:"CONS UNAVERAGE MID",price:"17,000〜22,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["light","fit","player"],player:"togashi",tags:["富樫勇樹シグネチャー","日本人初の真シグネチャー","俊敏ドライブ"],desc:"【日本人プレーヤー初の真のシグネチャーモデル】千葉ジェッツ・富樫勇樹のCONVERSE専用設計バッシュ。軽さ・反発・安定感のバランスに優れ、俊敏なドライブをサポート。",sizing:"+0.5cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_cons-togashi"},
+{id:"unpre-ars",brand:"ASICS",name:"UNPRE ARS LOW 2",price:"17,000〜20,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[2,3],width:["normal"],priority:["light","fit"],player:"kawamura",tags:["河村勇輝・渡邊雄太愛用","LOWカット","横安定性"],desc:"河村勇輝・渡邊雄太など複数の日本人トップ選手が着用するLOWカットモデル。サイドウォール構造で横ブレを抑え、素早い切り返しをサポート。スペシャルエディション「ベニカケソラ」も人気。",sizing:"+0cm〜+0.5cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_unpre-ars"}
 ];
 
 var PLAYER_LABELS={
-  curry:"ステフィン・カリー",lebron:"レブロン・ジェームズ",kd:"ケビン・デュラント",
-  luka:"ルカ・ドンチッチ",sabrina:"サブリナ・イオネスク",harden:"ジェームズ・ハーデン",
-  dame:"デイミアン・リラード",wade:"ドウェイン・ウェイド"
+curry:"ステフィン・カリー",lebron:"レブロン・ジェームズ",kd:"ケビン・デュラント",
+luka:"ルカ・ドンチッチ",sabrina:"サブリナ・イオネスク",harden:"ジェームズ・ハーデン",
+dame:"デイミアン・リラード",wade:"ドウェイン・ウェイド",
+kawamura:"河村勇輝",watanabe:"渡邊雄太",togashi:"富樫勇樹",
+none:"特になし"
 };
 
 var RELATED=[
-{id:"socks-pro",icon:"🧦",name:"パフォーマンスソックス",price:"2,000〜4,000円"},
-{id:"insole-pro",icon:"👣",name:"プロ仕様インソール",price:"3,000〜8,000円"},
-{id:"ankle",icon:"🦿",name:"アンクルサポーター",price:"2,000〜5,000円"},
-{id:"ball-pro",icon:"🏀",name:"ゲームボール",price:"4,000〜9,000円"}
+{id:"socks",icon:"🧦",name:"バスケットソックス",price:"1,500〜3,000円"},
+{id:"insole",icon:"👣",name:"高機能インソール",price:"2,000〜5,000円"},
+{id:"ball",icon:"🏀",name:"バスケットボール",price:"2,000〜6,000円"},
+{id:"bag",icon:"🎒",name:"バスケバッグ",price:"3,000〜8,000円"}
 ];
 
 var BRANDS_SIZE=[
@@ -101,6 +105,9 @@ function renderDiag(){
   h+=optBtn("player","sabrina","⚡ サブリナ・イオネスク",dState.player==="sabrina");
   h+=optBtn("player","harden","🧔 ジェームズ・ハーデン",dState.player==="harden");
   h+=optBtn("player","dame","⏰ デイミアン・リラード",dState.player==="dame");
+  h+=optBtn("player","kawamura","🇯🇵 河村勇輝",dState.player==="kawamura");
+  h+=optBtn("player","watanabe","🇯🇵 渡邊雄太",dState.player==="watanabe");
+  h+=optBtn("player","togashi","🇯🇵 富樫勇樹",dState.player==="togashi");
   h+=optBtn("player","none","🤷 特になし・選手モデルにこだわらない",dState.player==="none");
   h+='</div></div>';
 
@@ -151,18 +158,49 @@ function scoreShoe(s){
   return sc;
 }
 
+function decodeHtmlEntities(str){
+  if(!str) return str;
+  return str.replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&#x27;/g,"'");
+}
+function normalizeUrl(url){
+  if(!url) return null;
+  url=decodeHtmlEntities(url);
+  if(url.indexOf("//")===0) url="https:"+url;
+  return url;
+}
+function parseLinkHtml(html){
+  if(!html||typeof html!=="string") return null;
+  var hrefMatch=html.match(/href="([^"]+)"/);
+  var imgMatch=html.match(/<img\s+src="(https:\/\/[^"]+\.(?:jpg|jpeg|png|gif|webp))/i);
+  return{
+    clickUrl:hrefMatch?normalizeUrl(hrefMatch[1]):null,
+    imageUrl:imgMatch?imgMatch[1].replace(/_SL\d+_/,"_SL500_"):null
+  };
+}
+function resolveShoeAssets(s){
+  var amzParsed=s.amzHtml?parseLinkHtml(s.amzHtml):null;
+  var rktnParsed=s.rktnHtml?parseLinkHtml(s.rktnHtml):null;
+  return{
+    image:(amzParsed&&amzParsed.imageUrl)||s.image||("PRODUCT_IMAGE_"+s.id),
+    amzUrl:(amzParsed&&amzParsed.clickUrl)||s.amzUrl||("AFFILIATE_AMAZON_"+s.id),
+    rktnUrl:(rktnParsed&&rktnParsed.clickUrl)||s.rktnUrl||("AFFILIATE_RAKUTEN_"+s.id)
+  };
+}
+
 function hasRealImage(url){
   return url && url.indexOf("PRODUCT_IMAGE_")!==0;
 }
 
 function shoeCard(s,rank){
-  var imageOk=hasRealImage(s.image);
+  var assets=resolveShoeAssets(s);
+
+  var imageOk=hasRealImage(assets.image);
   var topClass=rank===0?" top":"";
   var noImageClass=!imageOk?" no-image":"";
   var h='<div class="bsh-result-card'+topClass+noImageClass+'">';
   if(rank===0)h+='<div class="bsh-rc-badge">🏆 BEST MATCH</div>';
   if(imageOk){
-    h+='<div class="bsh-rc-image"><img src="'+s.image+'" alt="'+s.name+'" loading="lazy"></div>';
+    h+='<div class="bsh-rc-image"><img src="'+assets.image+'" alt="'+s.name+'" loading="lazy"></div>';
   }
   var ranks=["g","s","br"];
   var rankLabels=["1","2","3"];
@@ -179,8 +217,8 @@ function shoeCard(s,rank){
   h+='<div class="bsh-rc-desc">'+s.desc+'</div>';
   h+='<div class="bsh-rc-size">📏 サイズの目安：<strong>'+s.sizing+'</strong></div>';
   h+='<div class="bsh-rc-links">';
-  h+='<a class="bsh-rc-link amz" href="'+(s.amzUrl||('AFFILIATE_AMAZON_'+s.id))+'" target="_blank" rel="nofollow noopener">Amazonで見る</a>';
-  h+='<a class="bsh-rc-link rktn" href="'+(s.rktnUrl||('AFFILIATE_RAKUTEN_'+s.id))+'" target="_blank" rel="nofollow noopener">楽天市場で見る</a>';
+  h+='<a class="bsh-rc-link amz" href="'+assets.amzUrl+'" target="_blank" rel="nofollow noopener">Amazonで見る</a>';
+  h+='<a class="bsh-rc-link rktn" href="'+assets.rktnUrl+'" target="_blank" rel="nofollow noopener">楽天市場で見る</a>';
   h+='</div></div></div>';
   return h;
 }
@@ -191,7 +229,7 @@ function relatedSection(){
   h+='<div class="bsh-related-sub">バッシュと一緒に揃えてパフォーマンスをさらに引き上げる</div>';
   h+='<div class="bsh-related-grid">';
   RELATED.forEach(function(r){
-    h+='<a class="bsh-related-item" href="'+(r.amzUrl||('AFFILIATE_AMAZON_'+r.id))+'" target="_blank" rel="nofollow noopener">';
+    h+='<a class="bsh-related-item" href="'+(r.amzHtml?(parseLinkHtml(r.amzHtml).clickUrl||('AFFILIATE_AMAZON_'+r.id)):(r.amzUrl||('AFFILIATE_AMAZON_'+r.id)))+'" target="_blank" rel="nofollow noopener">';
     h+='<div class="bsh-related-icon">'+r.icon+'</div>';
     h+='<div class="bsh-related-name">'+r.name+'</div>';
     h+='<div class="bsh-related-price">'+r.price+'</div>';
@@ -222,7 +260,7 @@ function renderDiagResult(){
 function popularShoeCard(s,rank){
   var label="";
   if(rank===0)label="🏆 ";
-  return'<a class="bsh-popular-card" href="'+(s.amzUrl||('AFFILIATE_AMAZON_'+s.id))+'" target="_blank" rel="nofollow noopener">'+
+  return'<a class="bsh-popular-card" href="'+assets.amzUrl+'" target="_blank" rel="nofollow noopener">'+
     '<div class="bsh-popular-rank'+(rank===0?" top":"")+'">'+(rank+1)+'</div>'+
     '<div class="bsh-popular-info">'+
     '<div class="bsh-popular-brand">'+s.brand+'</div>'+
