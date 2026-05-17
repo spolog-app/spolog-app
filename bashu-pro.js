@@ -225,8 +225,8 @@ function shoeCard(s,rank){
 
 function relatedSection(){
   var h='<div class="bsh-related">';
-  h+='<div class="bsh-related-title">🛒 プレーヤー必携ギア</div>';
-  h+='<div class="bsh-related-sub">バッシュと一緒に揃えてパフォーマンスをさらに引き上げる</div>';
+  h+='<div class="bsh-related-title">🛒 一緒に揃えたいバスケ用品</div>';
+  h+='<div class="bsh-related-sub">バッシュと同時に揃えるとスムーズに練習スタートできます</div>';
   h+='<div class="bsh-related-grid">';
   RELATED.forEach(function(r){
     h+='<a class="bsh-related-item" href="'+(r.amzHtml?(parseLinkHtml(r.amzHtml).clickUrl||('AFFILIATE_AMAZON_'+r.id)):(r.amzUrl||('AFFILIATE_AMAZON_'+r.id)))+'" target="_blank" rel="nofollow noopener">';
