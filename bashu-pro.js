@@ -5,7 +5,7 @@ var SHOES=[
 {id:"nova",brand:"ASICS",name:"NOVA SURGE 3",price:"13,000〜19,500円",level:["intermediate","advanced"],style:["power","all"],budget:[3],width:["normal","wide"],priority:["cushion","durable"],player:"",tags:["クッション最強","パワープレー","リバウンド向け"],desc:"FF BLAST PLUS搭載の高反発クッション。リバウンドなど高さが求められるプレーヤー向け。蹴りだし部分を最も厚く設計し、より高いジャンプを実現。",sizing:"+0cm〜+0.5cm",rating:4.6,reviews:543,sizeCm:[24,30],image:"PRODUCT_IMAGE_nova"},
 {id:"curry-pro",brand:"UNDER ARMOUR",name:"Curry 13",price:"19,000〜23,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","grip","player"],player:"curry",tags:["カリー愛用","UA最終モデル","HOVR+"],desc:"【UA最終Curryモデル】HOVR+クッションとUA Flowアウトソールの集大成。2025年11月にカリーがUAから独立し、本作が両者最後の作品。",sizing:"+0.5cm〜+1.0cm",rating:4.7,reviews:892,sizeCm:[24,30],image:"PRODUCT_IMAGE_curry-pro"},
 {id:"lebron-pro",brand:"NIKE",name:"LeBron 23",price:"28,000〜32,000円",level:["advanced"],style:["power","all"],budget:[3],width:["normal"],priority:["cushion","player","design"],player:"lebron",tags:["レブロン愛用","23年目記念","フラッグシップ"],desc:"NBA入り23年目を記念した第23作。レブロンの最終メインシグネチャーになる可能性大。Crown Containment Systemで王の地位を象徴するデザイン。",sizing:"+0.5cm〜+1.0cm",rating:4.5,reviews:387,sizeCm:[25,32],image:"PRODUCT_IMAGE_lebron-pro"},
-{id:"kd",brand:"NIKE",name:"KD18",price:"20,000〜24,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","fit","player"],player:"kd",tags:["KD愛用","フィット感最強","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Cushlon 3.0＋Air Zoomで爆発的な動きをサポート。",sizing:"+0.5cm〜+1.0cm",rating:4.6,reviews:456,sizeCm:[25,31],image:"PRODUCT_IMAGE_kd"},
+{id:"kd",brand:"NIKE",name:"KD18",price:"20,000〜24,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","fit","player"],player:"kd",tags:["KD愛用","フィット感最強","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Cushlon 3.0＋Air Zoomで爆発的な動きをサポート。",sizing:"+0.5cm〜+1.0cm",rating:4.6,reviews:456,sizeCm:[25,31],image:"https://images-fe.ssl-images-amazon.com/images/I/41PmxG9xA6L._SL500_.jpg",amzUrl:"https://af.moshimo.com/af/c/click?a_id=2438530&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0GPD3R7KZ"},
 {id:"luka",brand:"Jordan",name:"Luka 4",price:"17,000〜20,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["player","design","grip"],player:"luka",tags:["ドンチッチ愛用","レイカーズ","IsoPlate"],desc:"ルカ・ドンチッチ第4作。アップグレードIsoPlateシステムで横方向の安定性を強化。Cushlon 3.0＋Air Zoomで万能対応。",sizing:"+0.5cm",rating:4.5,reviews:312,sizeCm:[24,31],image:"PRODUCT_IMAGE_luka"},
 {id:"sabrina",brand:"NIKE",name:"Sabrina 3",price:"18,000〜21,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","player","design"],player:"sabrina",tags:["サブリナ愛用","NBA使用率No.1級","男女兼用"],desc:"WNBAスター、サブリナ・イオネスクの第3作。前作Sabrina 2はKobe 6 Protroに次ぐNBA使用率第2位。ミッドフットケーブルシステムで足のロックダウン性◎。",sizing:"+0.5cm",rating:4.6,reviews:478,sizeCm:[22,28],image:"PRODUCT_IMAGE_sabrina"},
 {id:"harden",brand:"adidas",name:"Harden Vol.10",price:"22,000〜25,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["player","grip","fit"],player:"harden",tags:["ハーデン愛用","10作目記念","ステップバック向け"],desc:"ジェームズ・ハーデン第10作（10年目記念）。フォアフット・ヒール専用ラジアルパッド搭載。スピードと安定性のバランスに優れる。",sizing:"+0.5cm",rating:4.4,reviews:289,sizeCm:[25,31],image:"PRODUCT_IMAGE_harden"},
@@ -188,8 +188,8 @@ function shoeCard(s,rank){
   h+='<div class="bsh-rc-desc">'+s.desc+'</div>';
   h+='<div class="bsh-rc-size">📏 サイズの目安：<strong>'+s.sizing+'</strong></div>';
   h+='<div class="bsh-rc-links">';
-  h+='<a class="bsh-rc-link amz" href="AFFILIATE_AMAZON_'+s.id+'" target="_blank" rel="nofollow noopener">Amazonで見る</a>';
-  h+='<a class="bsh-rc-link rktn" href="AFFILIATE_RAKUTEN_'+s.id+'" target="_blank" rel="nofollow noopener">楽天市場で見る</a>';
+  h+='<a class="bsh-rc-link amz" href="'+(s.amzUrl||('AFFILIATE_AMAZON_'+s.id))+'" target="_blank" rel="nofollow noopener">Amazonで見る</a>';
+  h+='<a class="bsh-rc-link rktn" href="'+(s.rktnUrl||('AFFILIATE_RAKUTEN_'+s.id))+'" target="_blank" rel="nofollow noopener">楽天市場で見る</a>';
   h+='</div></div></div>';
   return h;
 }
@@ -200,7 +200,7 @@ function relatedSection(){
   h+='<div class="bsh-related-sub">バッシュと一緒に揃えてパフォーマンスをさらに引き上げる</div>';
   h+='<div class="bsh-related-grid">';
   RELATED.forEach(function(r){
-    h+='<a class="bsh-related-item" href="AFFILIATE_AMAZON_'+r.id+'" target="_blank" rel="nofollow noopener">';
+    h+='<a class="bsh-related-item" href="'+(r.amzUrl||('AFFILIATE_AMAZON_'+r.id))+'" target="_blank" rel="nofollow noopener">';
     h+='<div class="bsh-related-icon">'+r.icon+'</div>';
     h+='<div class="bsh-related-name">'+r.name+'</div>';
     h+='<div class="bsh-related-price">'+r.price+'</div>';
@@ -231,7 +231,7 @@ function renderDiagResult(){
 function popularShoeCard(s,rank){
   var label="";
   if(rank===0)label="🏆 ";
-  return'<a class="bsh-popular-card" href="AFFILIATE_AMAZON_'+s.id+'" target="_blank" rel="nofollow noopener">'+
+  return'<a class="bsh-popular-card" href="'+(s.amzUrl||('AFFILIATE_AMAZON_'+s.id))+'" target="_blank" rel="nofollow noopener">'+
     '<div class="bsh-popular-rank'+(rank===0?" top":"")+'">'+(rank+1)+'</div>'+
     '<div class="bsh-popular-info">'+
     '<div class="bsh-popular-brand">'+s.brand+'</div>'+

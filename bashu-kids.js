@@ -8,7 +8,7 @@ var SHOES=[
 {id:"gelhoop",brand:"ASICS",name:"GELHOOP V17",price:"11,000〜16,000円",cat:"mid",style:["speed","all"],budget:[2,3],width:["normal","wide"],priority:["light","cushion"],tags:["部活定番","軽量","3ウィズ展開"],desc:"中高生の部活で圧倒的シェアを誇る定番モデル。V17で軽量性とクッション性がさらに向上。NARROW・STANDARD・EXTRA WIDEの3ウィズ展開で足型に合わせやすい。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",rating:4.8,reviews:2145,sizeCm:[22,29],image:"PRODUCT_IMAGE_gelhoop"},
 {id:"nova",brand:"ASICS",name:"NOVA SURGE 3",price:"13,000〜19,500円",cat:"mid",style:["power","all"],budget:[3],width:["normal","wide"],priority:["cushion","durable"],tags:["クッション最強","パワープレー","リバウンド向け"],desc:"FF BLAST PLUS搭載の高反発クッション。リバウンドなど高さが求められるプレーヤー向け。蹴りだし部分を最も厚く設計し、より高いジャンプを実現。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",rating:4.6,reviews:543,sizeCm:[23,30],image:"PRODUCT_IMAGE_nova"},
 {id:"lebron-kids",brand:"NIKE",name:"LeBron NXXT Gen",price:"15,000〜22,000円",cat:"mid",style:["power","all"],budget:[3],width:["normal"],priority:["cushion","design"],tags:["レブロン愛用","NBA愛用","存在感"],desc:"レブロン・ジェームズ着用モデル（テイクダウンライン）。2025年Genisus／JuJuコラボなど派生モデルが続々登場。クッションと安定感を両立。",sizing:"+0.5cm〜+1.0cm（ナイキは大きめ推奨）",rating:4.5,reviews:387,sizeCm:[24,30],image:"PRODUCT_IMAGE_lebron-kids"},
-{id:"kd",brand:"NIKE",name:"KD18",price:"14,000〜22,000円",cat:"mid",style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","design"],tags:["KD愛用","フィット感◎","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Air Zoom搭載で爆発的な動きをサポート。GS・大人サイズ両方展開。",sizing:"+0.5cm〜+1.0cm（ナイキは大きめ推奨）",rating:4.6,reviews:456,sizeCm:[24,30],image:"PRODUCT_IMAGE_kd"}
+{id:"kd",brand:"NIKE",name:"KD18",price:"14,000〜22,000円",cat:"mid",style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","design"],tags:["KD愛用","フィット感◎","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Air Zoom搭載で爆発的な動きをサポート。GS・大人サイズ両方展開。",sizing:"+0.5cm〜+1.0cm（ナイキは大きめ推奨）",rating:4.6,reviews:456,sizeCm:[24,30],image:"https://images-fe.ssl-images-amazon.com/images/I/41PmxG9xA6L._SL500_.jpg",amzUrl:"https://af.moshimo.com/af/c/click?a_id=2438530&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0GPD3R7KZ"}
 ];
 
 var RELATED=[
@@ -179,8 +179,8 @@ function shoeCard(s,rank){
   h+='<div class="bsh-rc-desc">'+s.desc+'</div>';
   h+='<div class="bsh-rc-size">📏 サイズの目安：<strong>'+s.sizing+'</strong></div>';
   h+='<div class="bsh-rc-links">';
-  h+='<a class="bsh-rc-link amz" href="AFFILIATE_AMAZON_'+s.id+'" target="_blank" rel="nofollow noopener">Amazonで見る</a>';
-  h+='<a class="bsh-rc-link rktn" href="AFFILIATE_RAKUTEN_'+s.id+'" target="_blank" rel="nofollow noopener">楽天市場で見る</a>';
+  h+='<a class="bsh-rc-link amz" href="'+(s.amzUrl||('AFFILIATE_AMAZON_'+s.id))+'" target="_blank" rel="nofollow noopener">Amazonで見る</a>';
+  h+='<a class="bsh-rc-link rktn" href="'+(s.rktnUrl||('AFFILIATE_RAKUTEN_'+s.id))+'" target="_blank" rel="nofollow noopener">楽天市場で見る</a>';
   h+='</div></div></div>';
   return h;
 }
@@ -191,7 +191,7 @@ function relatedSection(){
   h+='<div class="bsh-related-sub">バッシュと同時に揃えるとスムーズに練習スタートできます</div>';
   h+='<div class="bsh-related-grid">';
   RELATED.forEach(function(r){
-    h+='<a class="bsh-related-item" href="AFFILIATE_AMAZON_'+r.id+'" target="_blank" rel="nofollow noopener">';
+    h+='<a class="bsh-related-item" href="'+(r.amzUrl||('AFFILIATE_AMAZON_'+r.id))+'" target="_blank" rel="nofollow noopener">';
     h+='<div class="bsh-related-icon">'+r.icon+'</div>';
     h+='<div class="bsh-related-name">'+r.name+'</div>';
     h+='<div class="bsh-related-price">'+r.price+'</div>';
@@ -222,7 +222,7 @@ function renderDiagResult(){
 function popularShoeCard(s,rank){
   var label="";
   if(rank===0)label="👑 ";
-  return'<a class="bsh-popular-card" href="AFFILIATE_AMAZON_'+s.id+'" target="_blank" rel="nofollow noopener">'+
+  return'<a class="bsh-popular-card" href="'+(s.amzUrl||('AFFILIATE_AMAZON_'+s.id))+'" target="_blank" rel="nofollow noopener">'+
     '<div class="bsh-popular-rank'+(rank===0?" top":"")+'">'+(rank+1)+'</div>'+
     '<div class="bsh-popular-info">'+
     '<div class="bsh-popular-brand">'+s.brand+'</div>'+
