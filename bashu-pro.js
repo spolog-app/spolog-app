@@ -1,16 +1,16 @@
 (function(){
 var SHOES=[
-{id:"gelhoop",brand:"ASICS",name:"GELHOOP V17",price:"11,000〜16,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[2,3],width:["normal","wide"],priority:["light","fit"],player:"",tags:["部活定番","軽量","3ウィズ展開"],desc:"中高生の部活で圧倒的シェアを誇る定番。V17で軽量性とクッション性が更に向上。NARROW/STANDARD/EXTRA WIDEの3ウィズ展開で日本人の足型に最適化。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",rating:4.8,reviews:2145,sizeCm:[22,29],image:"PRODUCT_IMAGE_gelhoop"},
-{id:"gelburst",brand:"ASICS",name:"GELBURST 28",price:"13,000〜18,000円",level:["beginner","intermediate"],style:["all","power"],budget:[2,3],width:["normal","wide"],priority:["cushion","fit"],player:"",tags:["安定感","クッション◎","オールラウンド"],desc:"GELHOOPに並ぶASICSの主力モデル。GELクッションでハードな練習にも対応。スピードと安定性を両立した即戦力モデル。",sizing:"+0cm〜+0.5cm",rating:4.7,reviews:1820,sizeCm:[23,29],image:"PRODUCT_IMAGE_gelburst"},
-{id:"nova",brand:"ASICS",name:"NOVA SURGE 3",price:"13,000〜19,500円",level:["intermediate","advanced"],style:["power","all"],budget:[3],width:["normal","wide"],priority:["cushion","durable"],player:"",tags:["クッション最強","パワープレー","リバウンド向け"],desc:"FF BLAST PLUS搭載の高反発クッション。リバウンドなど高さが求められるプレーヤー向け。蹴りだし部分を最も厚く設計し、より高いジャンプを実現。",sizing:"+0cm〜+0.5cm",rating:4.6,reviews:543,sizeCm:[24,30],image:"PRODUCT_IMAGE_nova"},
-{id:"curry-pro",brand:"UNDER ARMOUR",name:"Curry 13",price:"19,000〜23,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","grip","player"],player:"curry",tags:["カリー愛用","UA最終モデル","HOVR+"],desc:"【UA最終Curryモデル】HOVR+クッションとUA Flowアウトソールの集大成。2025年11月にカリーがUAから独立し、本作が両者最後の作品。",sizing:"+0.5cm〜+1.0cm",rating:4.7,reviews:892,sizeCm:[24,30],image:"PRODUCT_IMAGE_curry-pro"},
-{id:"lebron-pro",brand:"NIKE",name:"LeBron 23",price:"28,000〜32,000円",level:["advanced"],style:["power","all"],budget:[3],width:["normal"],priority:["cushion","player","design"],player:"lebron",tags:["レブロン愛用","23年目記念","フラッグシップ"],desc:"NBA入り23年目を記念した第23作。レブロンの最終メインシグネチャーになる可能性大。Crown Containment Systemで王の地位を象徴するデザイン。",sizing:"+0.5cm〜+1.0cm",rating:4.5,reviews:387,sizeCm:[25,32],image:"PRODUCT_IMAGE_lebron-pro"},
-{id:"kd",brand:"NIKE",name:"KD18",price:"20,000〜24,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","fit","player"],player:"kd",tags:["KD愛用","フィット感最強","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Cushlon 3.0＋Air Zoomで爆発的な動きをサポート。",sizing:"+0.5cm〜+1.0cm",rating:4.6,reviews:456,sizeCm:[25,31],image:"https://images-fe.ssl-images-amazon.com/images/I/41PmxG9xA6L._SL500_.jpg",amzUrl:"https://af.moshimo.com/af/c/click?a_id=2438530&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0GPD3R7KZ"},
-{id:"luka",brand:"Jordan",name:"Luka 4",price:"17,000〜20,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["player","design","grip"],player:"luka",tags:["ドンチッチ愛用","レイカーズ","IsoPlate"],desc:"ルカ・ドンチッチ第4作。アップグレードIsoPlateシステムで横方向の安定性を強化。Cushlon 3.0＋Air Zoomで万能対応。",sizing:"+0.5cm",rating:4.5,reviews:312,sizeCm:[24,31],image:"PRODUCT_IMAGE_luka"},
-{id:"sabrina",brand:"NIKE",name:"Sabrina 3",price:"18,000〜21,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","player","design"],player:"sabrina",tags:["サブリナ愛用","NBA使用率No.1級","男女兼用"],desc:"WNBAスター、サブリナ・イオネスクの第3作。前作Sabrina 2はKobe 6 Protroに次ぐNBA使用率第2位。ミッドフットケーブルシステムで足のロックダウン性◎。",sizing:"+0.5cm",rating:4.6,reviews:478,sizeCm:[22,28],image:"PRODUCT_IMAGE_sabrina"},
-{id:"harden",brand:"adidas",name:"Harden Vol.10",price:"22,000〜25,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["player","grip","fit"],player:"harden",tags:["ハーデン愛用","10作目記念","ステップバック向け"],desc:"ジェームズ・ハーデン第10作（10年目記念）。フォアフット・ヒール専用ラジアルパッド搭載。スピードと安定性のバランスに優れる。",sizing:"+0.5cm",rating:4.4,reviews:289,sizeCm:[25,31],image:"PRODUCT_IMAGE_harden"},
-{id:"crazyfly",brand:"adidas",name:"Dame X",price:"12,000〜14,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[2,3],width:["normal"],priority:["player","light","design"],player:"dame",tags:["リラード愛用","$90破格","コスパ最強"],desc:"【$90の破格】デイミアン・リラード第10作。adidas Basketballシグネチャー史上最も手頃。Lightstrikeミッドソール、ストレッチウーブンアッパー採用。",sizing:"+0.5cm",rating:4.5,reviews:334,sizeCm:[24,30],image:"PRODUCT_IMAGE_crazyfly"},
-{id:"wade",brand:"Li-Ning",name:"Way of Wade 12",price:"25,000〜30,000円",level:["intermediate","advanced"],style:["all","power"],budget:[3],width:["normal"],priority:["player","design","durable"],player:"wade",tags:["ウェイド愛用","Li-Ning Boom","通好み"],desc:"D・ウェイド第12作（リーニン社）。Boom／カーボンファイバープレート／GCU搭載。中国ブランド製でNBA選手も愛用する性能派。",sizing:"+0cm〜+0.5cm",rating:4.5,reviews:156,sizeCm:[25,31],image:"PRODUCT_IMAGE_wade"}
+{id:"gelhoop",brand:"ASICS",name:"GELHOOP V17",price:"11,000〜16,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[2,3],width:["normal","wide"],priority:["light","fit"],player:"",tags:["部活定番","軽量","3ウィズ展開"],desc:"中高生の部活で圧倒的シェアを誇る定番。V17で軽量性とクッション性が更に向上。NARROW/STANDARD/EXTRA WIDEの3ウィズ展開で日本人の足型に最適化。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",sizeCm:[22,29],image:"PRODUCT_IMAGE_gelhoop"},
+{id:"gelburst",brand:"ASICS",name:"GELBURST 28",price:"13,000〜18,000円",level:["beginner","intermediate"],style:["all","power"],budget:[2,3],width:["normal","wide"],priority:["cushion","fit"],player:"",tags:["安定感","クッション◎","オールラウンド"],desc:"GELHOOPに並ぶASICSの主力モデル。GELクッションでハードな練習にも対応。スピードと安定性を両立した即戦力モデル。",sizing:"+0cm〜+0.5cm",sizeCm:[23,29],image:"PRODUCT_IMAGE_gelburst"},
+{id:"nova",brand:"ASICS",name:"NOVA SURGE 3",price:"13,000〜19,500円",level:["intermediate","advanced"],style:["power","all"],budget:[3],width:["normal","wide"],priority:["cushion","durable"],player:"",tags:["クッション最強","パワープレー","リバウンド向け"],desc:"FF BLAST PLUS搭載の高反発クッション。リバウンドなど高さが求められるプレーヤー向け。蹴りだし部分を最も厚く設計し、より高いジャンプを実現。",sizing:"+0cm〜+0.5cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_nova"},
+{id:"curry-pro",brand:"UNDER ARMOUR",name:"Curry 13",price:"19,000〜23,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","grip","player"],player:"curry",tags:["カリー愛用","UA最終モデル","HOVR+"],desc:"【UA最終Curryモデル】HOVR+クッションとUA Flowアウトソールの集大成。2025年11月にカリーがUAから独立し、本作が両者最後の作品。",sizing:"+0.5cm〜+1.0cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_curry-pro"},
+{id:"lebron-pro",brand:"NIKE",name:"LeBron 23",price:"28,000〜32,000円",level:["advanced"],style:["power","all"],budget:[3],width:["normal"],priority:["cushion","player","design"],player:"lebron",tags:["レブロン愛用","23年目記念","フラッグシップ"],desc:"NBA入り23年目を記念した第23作。レブロンの最終メインシグネチャーになる可能性大。Crown Containment Systemで王の地位を象徴するデザイン。",sizing:"+0.5cm〜+1.0cm",sizeCm:[25,32],image:"PRODUCT_IMAGE_lebron-pro"},
+{id:"kd",brand:"NIKE",name:"KD18",price:"20,000〜24,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","fit","player"],player:"kd",tags:["KD愛用","フィット感最強","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Cushlon 3.0＋Air Zoomで爆発的な動きをサポート。",sizing:"+0.5cm〜+1.0cm",sizeCm:[25,31],image:"https://images-fe.ssl-images-amazon.com/images/I/41PmxG9xA6L._SL500_.jpg",amzUrl:"https://af.moshimo.com/af/c/click?a_id=2438530&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0GPD3R7KZ"},
+{id:"luka",brand:"Jordan",name:"Luka 4",price:"17,000〜20,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["player","design","grip"],player:"luka",tags:["ドンチッチ愛用","レイカーズ","IsoPlate"],desc:"ルカ・ドンチッチ第4作。アップグレードIsoPlateシステムで横方向の安定性を強化。Cushlon 3.0＋Air Zoomで万能対応。",sizing:"+0.5cm",sizeCm:[24,31],image:"PRODUCT_IMAGE_luka"},
+{id:"sabrina",brand:"NIKE",name:"Sabrina 3",price:"18,000〜21,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","player","design"],player:"sabrina",tags:["サブリナ愛用","NBA使用率No.1級","男女兼用"],desc:"WNBAスター、サブリナ・イオネスクの第3作。前作Sabrina 2はKobe 6 Protroに次ぐNBA使用率第2位。ミッドフットケーブルシステムで足のロックダウン性◎。",sizing:"+0.5cm",sizeCm:[22,28],image:"PRODUCT_IMAGE_sabrina"},
+{id:"harden",brand:"adidas",name:"Harden Vol.10",price:"22,000〜25,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[3],width:["normal"],priority:["player","grip","fit"],player:"harden",tags:["ハーデン愛用","10作目記念","ステップバック向け"],desc:"ジェームズ・ハーデン第10作（10年目記念）。フォアフット・ヒール専用ラジアルパッド搭載。スピードと安定性のバランスに優れる。",sizing:"+0.5cm",sizeCm:[25,31],image:"PRODUCT_IMAGE_harden"},
+{id:"crazyfly",brand:"adidas",name:"Dame X",price:"12,000〜14,000円",level:["intermediate","advanced"],style:["speed","all"],budget:[2,3],width:["normal"],priority:["player","light","design"],player:"dame",tags:["リラード愛用","$90破格","コスパ最強"],desc:"【$90の破格】デイミアン・リラード第10作。adidas Basketballシグネチャー史上最も手頃。Lightstrikeミッドソール、ストレッチウーブンアッパー採用。",sizing:"+0.5cm",sizeCm:[24,30],image:"PRODUCT_IMAGE_crazyfly"},
+{id:"wade",brand:"Li-Ning",name:"Way of Wade 12",price:"25,000〜30,000円",level:["intermediate","advanced"],style:["all","power"],budget:[3],width:["normal"],priority:["player","design","durable"],player:"wade",tags:["ウェイド愛用","Li-Ning Boom","通好み"],desc:"D・ウェイド第12作（リーニン社）。Boom／カーボンファイバープレート／GCU搭載。中国ブランド製でNBA選手も愛用する性能派。",sizing:"+0cm〜+0.5cm",sizeCm:[25,31],image:"PRODUCT_IMAGE_wade"}
 ];
 
 var PLAYER_LABELS={
@@ -57,15 +57,7 @@ function optBtn(group,val,label,sel){
   return'<button class="bsh-opt'+(sel?" sel":"")+'" data-g="'+group+'" data-v="'+val+'">'+label+'</button>';
 }
 
-function starsHTML(rating,reviews){
-  var full=Math.floor(rating);
-  var half=rating-full>=0.3?1:0;
-  var s="";
-  for(var i=0;i<full;i++)s+="★";
-  if(half)s+="☆";
-  for(var i=full+half;i<5;i++)s+="☆";
-  return'<div class="bsh-rc-stars"><span class="stars">'+s+'</span><span class="score">'+rating.toFixed(1)+'</span><span class="count">('+reviews.toLocaleString()+'件のレビュー)</span></div>';
-}
+
 
 function renderDiag(){
   var el=document.getElementById("bsh-body");
@@ -181,7 +173,6 @@ function shoeCard(s,rank){
   if(s.player&&PLAYER_LABELS[s.player]){
     h+='<div class="bsh-player"><span class="bsh-player-ico">👑</span><span class="bsh-player-text"><strong>'+PLAYER_LABELS[s.player]+'</strong> シグネチャーモデル</span></div>';
   }
-  h+=starsHTML(s.rating,s.reviews);
   h+='<div class="bsh-rc-tags">';
   s.tags.forEach(function(t,i){h+='<span class="bsh-rc-tag'+(rank===0&&i===0?" hot":"")+'">'+t+'</span>'});
   h+='</div>';
@@ -236,7 +227,7 @@ function popularShoeCard(s,rank){
     '<div class="bsh-popular-info">'+
     '<div class="bsh-popular-brand">'+s.brand+'</div>'+
     '<div class="bsh-popular-name">'+label+s.name+'</div>'+
-    '<div class="bsh-popular-meta">★'+s.rating.toFixed(1)+' ('+s.reviews.toLocaleString()+'件) / '+s.tags.slice(0,2).join("・")+'</div>'+
+    '<div class="bsh-popular-meta">'+s.tags.slice(0,2).join("・")+'</div>'+
     '</div>'+
     '<div class="bsh-popular-price">'+s.price+'</div>'+
     '</a>';
@@ -294,11 +285,11 @@ function updateSizeResults(){
     h+='プレー中のアジリティを最大化するには、<strong>かかとがしっかりフィットしつつ、つま先に約0.5〜1cmの余裕</strong>があるのが理想。厚めの練習用ソックスを履いて試着するとズレが少ないサイズ選びができます。';
     h+='</div></div>';
     var matching=SHOES.filter(function(s){return foot>=s.sizeCm[0]&&foot<=s.sizeCm[1]})
-      .sort(function(a,b){return(b.reviews*b.rating)-(a.reviews*a.rating)})
+      
       .slice(0,3);
     if(matching.length>0){
-      h+='<div class="bsh-sec-label sub">🔥 このサイズで人気のバッシュ TOP3</div>';
-      h+='<div style="font-size:11px;color:#64748b;margin-bottom:12px">あなたの足サイズに合うモデルをレビュー数の多い順で表示しています</div>';
+      h+='<div class="bsh-sec-label sub">🔥 このサイズで履けるバッシュ</div>';
+      h+='<div style="font-size:11px;color:#64748b;margin-bottom:12px">あなたの足サイズに合うモデルを表示しています</div>';
       matching.forEach(function(s,i){h+=popularShoeCard(s,i)});
       h+='<a class="bsh-article-cta" href="ARTICLE_SIZE_GUIDE_PRO">';
       h+='<div class="bsh-article-cta-label">プレーヤー向けサイズ選び</div>';

@@ -1,14 +1,14 @@
 (function(){
 var SHOES=[
-{id:"dunkshot",brand:"ASICS",name:"DUNKSHOT MB 10",price:"8,500〜10,500円",cat:"junior",style:["speed","all"],budget:[1,2],width:["normal","wide"],priority:["light","cushion"],tags:["ミニバス定番","軽量","日本人向け"],desc:"ミニバスの定番中の定番。日本人の足型に合わせた幅広設計で、初めてのバッシュに最適。第10世代でクッション性と屈曲性が向上。河村勇輝選手モデルもあり。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",rating:4.6,reviews:1284,sizeCm:[18,24],image:"PRODUCT_IMAGE_dunkshot"},
-{id:"gelimprove",brand:"ASICS",name:"GEL-IMPROVE 3 GS",price:"8,000〜10,000円",cat:"junior",style:["all","power"],budget:[1,2],width:["normal","wide"],priority:["cushion","durable"],tags:["クッション◎","加速性能","ステップアップ向け"],desc:"GELクッションでの衝撃吸収力が魅力。第3世代では加速性能を追求したソールを採用し、DUNKSHOTからのステップアップに最適。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",rating:4.5,reviews:632,sizeCm:[20,26],image:"PRODUCT_IMAGE_gelimprove"},
-{id:"teamhustle",brand:"NIKE",name:"Team Hustle D 12",price:"9,000〜11,000円",cat:"junior",style:["all","speed"],budget:[1,2],width:["narrow","normal"],priority:["design","light"],tags:["かっこいい","NBA愛用","軽量"],desc:"NBAの雰囲気を感じられるデザインでモチベーションUP。第12世代でストラップ＋伸縮ゴム紐の脱ぎ履きしやすさが進化。やや細め。",sizing:"+0.5cm〜+1.0cm（やや大きめ推奨）",rating:4.4,reviews:875,sizeCm:[18,24],image:"PRODUCT_IMAGE_teamhustle"},
-{id:"crossemup",brand:"adidas",name:"Cross Em Up Select",price:"5,500〜7,500円",cat:"junior",style:["all","speed"],budget:[1,2],width:["normal"],priority:["design","durable"],tags:["コスパ◎","シンプル","クッション◎"],desc:"コスパが優秀でカラーバリエーションも豊富。Cloudfoamミッドソールでクッション性を確保。アディダスらしいシンプル＆スタイリッシュなデザイン。",sizing:"+0.5cm（やや大きめ推奨）",rating:4.3,reviews:421,sizeCm:[19,25],image:"PRODUCT_IMAGE_crossemup"},
-{id:"curry-kids",brand:"UNDER ARMOUR",name:"Curry 4 Low FloTro",price:"7,500〜10,000円",cat:"mid",style:["speed","all"],budget:[2,3],width:["narrow","normal"],priority:["light","design"],tags:["カリー愛用","ローカット","レトロ復刻"],desc:"ステフィン・カリーのレトロ復刻モデル。ローカット設計で動きやすく、ステップアップに最適。シューターにとっての伝説的モデル。",sizing:"+0.5cm〜+1.0cm（やや大きめ推奨）",rating:4.7,reviews:892,sizeCm:[23,29],image:"PRODUCT_IMAGE_curry-kids"},
-{id:"gelhoop",brand:"ASICS",name:"GELHOOP V17",price:"11,000〜16,000円",cat:"mid",style:["speed","all"],budget:[2,3],width:["normal","wide"],priority:["light","cushion"],tags:["部活定番","軽量","3ウィズ展開"],desc:"中高生の部活で圧倒的シェアを誇る定番モデル。V17で軽量性とクッション性がさらに向上。NARROW・STANDARD・EXTRA WIDEの3ウィズ展開で足型に合わせやすい。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",rating:4.8,reviews:2145,sizeCm:[22,29],image:"PRODUCT_IMAGE_gelhoop"},
-{id:"nova",brand:"ASICS",name:"NOVA SURGE 3",price:"13,000〜19,500円",cat:"mid",style:["power","all"],budget:[3],width:["normal","wide"],priority:["cushion","durable"],tags:["クッション最強","パワープレー","リバウンド向け"],desc:"FF BLAST PLUS搭載の高反発クッション。リバウンドなど高さが求められるプレーヤー向け。蹴りだし部分を最も厚く設計し、より高いジャンプを実現。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",rating:4.6,reviews:543,sizeCm:[23,30],image:"PRODUCT_IMAGE_nova"},
-{id:"lebron-kids",brand:"NIKE",name:"LeBron NXXT Gen",price:"15,000〜22,000円",cat:"mid",style:["power","all"],budget:[3],width:["normal"],priority:["cushion","design"],tags:["レブロン愛用","NBA愛用","存在感"],desc:"レブロン・ジェームズ着用モデル（テイクダウンライン）。2025年Genisus／JuJuコラボなど派生モデルが続々登場。クッションと安定感を両立。",sizing:"+0.5cm〜+1.0cm（ナイキは大きめ推奨）",rating:4.5,reviews:387,sizeCm:[24,30],image:"PRODUCT_IMAGE_lebron-kids"},
-{id:"kd",brand:"NIKE",name:"KD18",price:"14,000〜22,000円",cat:"mid",style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","design"],tags:["KD愛用","フィット感◎","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Air Zoom搭載で爆発的な動きをサポート。GS・大人サイズ両方展開。",sizing:"+0.5cm〜+1.0cm（ナイキは大きめ推奨）",rating:4.6,reviews:456,sizeCm:[24,30],image:"https://images-fe.ssl-images-amazon.com/images/I/41PmxG9xA6L._SL500_.jpg",amzUrl:"https://af.moshimo.com/af/c/click?a_id=2438530&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0GPD3R7KZ"}
+{id:"dunkshot",brand:"ASICS",name:"DUNKSHOT MB 10",price:"8,500〜10,500円",cat:"junior",style:["speed","all"],budget:[1,2],width:["normal","wide"],priority:["light","cushion"],tags:["ミニバス定番","軽量","日本人向け"],desc:"ミニバスの定番中の定番。日本人の足型に合わせた幅広設計で、初めてのバッシュに最適。第10世代でクッション性と屈曲性が向上。河村勇輝選手モデルもあり。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",sizeCm:[18,24],image:"PRODUCT_IMAGE_dunkshot"},
+{id:"gelimprove",brand:"ASICS",name:"GEL-IMPROVE 3 GS",price:"8,000〜10,000円",cat:"junior",style:["all","power"],budget:[1,2],width:["normal","wide"],priority:["cushion","durable"],tags:["クッション◎","加速性能","ステップアップ向け"],desc:"GELクッションでの衝撃吸収力が魅力。第3世代では加速性能を追求したソールを採用し、DUNKSHOTからのステップアップに最適。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",sizeCm:[20,26],image:"PRODUCT_IMAGE_gelimprove"},
+{id:"teamhustle",brand:"NIKE",name:"Team Hustle D 12",price:"9,000〜11,000円",cat:"junior",style:["all","speed"],budget:[1,2],width:["narrow","normal"],priority:["design","light"],tags:["かっこいい","NBA愛用","軽量"],desc:"NBAの雰囲気を感じられるデザインでモチベーションUP。第12世代でストラップ＋伸縮ゴム紐の脱ぎ履きしやすさが進化。やや細め。",sizing:"+0.5cm〜+1.0cm（やや大きめ推奨）",sizeCm:[18,24],image:"PRODUCT_IMAGE_teamhustle"},
+{id:"crossemup",brand:"adidas",name:"Cross Em Up Select",price:"5,500〜7,500円",cat:"junior",style:["all","speed"],budget:[1,2],width:["normal"],priority:["design","durable"],tags:["コスパ◎","シンプル","クッション◎"],desc:"コスパが優秀でカラーバリエーションも豊富。Cloudfoamミッドソールでクッション性を確保。アディダスらしいシンプル＆スタイリッシュなデザイン。",sizing:"+0.5cm（やや大きめ推奨）",sizeCm:[19,25],image:"PRODUCT_IMAGE_crossemup"},
+{id:"curry-kids",brand:"UNDER ARMOUR",name:"Curry 4 Low FloTro",price:"7,500〜10,000円",cat:"mid",style:["speed","all"],budget:[2,3],width:["narrow","normal"],priority:["light","design"],tags:["カリー愛用","ローカット","レトロ復刻"],desc:"ステフィン・カリーのレトロ復刻モデル。ローカット設計で動きやすく、ステップアップに最適。シューターにとっての伝説的モデル。",sizing:"+0.5cm〜+1.0cm（やや大きめ推奨）",sizeCm:[23,29],image:"PRODUCT_IMAGE_curry-kids"},
+{id:"gelhoop",brand:"ASICS",name:"GELHOOP V17",price:"11,000〜16,000円",cat:"mid",style:["speed","all"],budget:[2,3],width:["normal","wide"],priority:["light","cushion"],tags:["部活定番","軽量","3ウィズ展開"],desc:"中高生の部活で圧倒的シェアを誇る定番モデル。V17で軽量性とクッション性がさらに向上。NARROW・STANDARD・EXTRA WIDEの3ウィズ展開で足型に合わせやすい。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",sizeCm:[22,29],image:"PRODUCT_IMAGE_gelhoop"},
+{id:"nova",brand:"ASICS",name:"NOVA SURGE 3",price:"13,000〜19,500円",cat:"mid",style:["power","all"],budget:[3],width:["normal","wide"],priority:["cushion","durable"],tags:["クッション最強","パワープレー","リバウンド向け"],desc:"FF BLAST PLUS搭載の高反発クッション。リバウンドなど高さが求められるプレーヤー向け。蹴りだし部分を最も厚く設計し、より高いジャンプを実現。",sizing:"+0cm〜+0.5cm（実寸通り〜やや大きめ）",sizeCm:[23,30],image:"PRODUCT_IMAGE_nova"},
+{id:"lebron-kids",brand:"NIKE",name:"LeBron NXXT Gen",price:"15,000〜22,000円",cat:"mid",style:["power","all"],budget:[3],width:["normal"],priority:["cushion","design"],tags:["レブロン愛用","NBA愛用","存在感"],desc:"レブロン・ジェームズ着用モデル（テイクダウンライン）。2025年Genisus／JuJuコラボなど派生モデルが続々登場。クッションと安定感を両立。",sizing:"+0.5cm〜+1.0cm（ナイキは大きめ推奨）",sizeCm:[24,30],image:"PRODUCT_IMAGE_lebron-kids"},
+{id:"kd",brand:"NIKE",name:"KD18",price:"14,000〜22,000円",cat:"mid",style:["speed","all"],budget:[3],width:["narrow","normal"],priority:["light","design"],tags:["KD愛用","フィット感◎","万能"],desc:"ケビン・デュラント最新シグネチャー。ミッドフットケージで足のロックダウン性◎。Air Zoom搭載で爆発的な動きをサポート。GS・大人サイズ両方展開。",sizing:"+0.5cm〜+1.0cm（ナイキは大きめ推奨）",sizeCm:[24,30],image:"https://images-fe.ssl-images-amazon.com/images/I/41PmxG9xA6L._SL500_.jpg",amzUrl:"https://af.moshimo.com/af/c/click?a_id=2438530&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0GPD3R7KZ"}
 ];
 
 var RELATED=[
@@ -49,15 +49,7 @@ function optBtn(group,val,label,sel){
   return'<button class="bsh-opt'+(sel?" sel":"")+'" data-g="'+group+'" data-v="'+val+'">'+label+'</button>';
 }
 
-function starsHTML(rating,reviews){
-  var full=Math.floor(rating);
-  var half=rating-full>=0.3?1:0;
-  var s="";
-  for(var i=0;i<full;i++)s+="★";
-  if(half)s+="☆";
-  for(var i=full+half;i<5;i++)s+="☆";
-  return'<div class="bsh-rc-stars"><span class="stars">'+s+'</span><span class="score">'+rating.toFixed(1)+'</span><span class="count">('+reviews.toLocaleString()+'件のレビュー)</span></div>';
-}
+
 
 function renderDiag(){
   var el=document.getElementById("bsh-body");
@@ -172,7 +164,6 @@ function shoeCard(s,rank){
   h+='<div class="bsh-rc-info"><div class="bsh-rc-brand">'+s.brand+'</div><div class="bsh-rc-name">'+s.name+'</div></div>';
   h+='<div class="bsh-rc-price">'+s.price+'</div></div>';
   h+='<div class="bsh-rc-body">';
-  h+=starsHTML(s.rating,s.reviews);
   h+='<div class="bsh-rc-tags">';
   s.tags.forEach(function(t,i){h+='<span class="bsh-rc-tag'+(rank===0&&i===0?" hot":"")+'">'+t+'</span>'});
   h+='</div>';
@@ -227,7 +218,7 @@ function popularShoeCard(s,rank){
     '<div class="bsh-popular-info">'+
     '<div class="bsh-popular-brand">'+s.brand+'</div>'+
     '<div class="bsh-popular-name">'+label+s.name+'</div>'+
-    '<div class="bsh-popular-meta">★'+s.rating.toFixed(1)+' ('+s.reviews.toLocaleString()+'件) / '+s.tags.slice(0,2).join("・")+'</div>'+
+    '<div class="bsh-popular-meta">'+s.tags.slice(0,2).join("・")+'</div>'+
     '</div>'+
     '<div class="bsh-popular-price">'+s.price+'</div>'+
     '</a>';
@@ -287,11 +278,11 @@ function updateSizeResults(){
     else h+='足の成長が落ち着いてきた時期です。実寸+0.5cm程度を目安に、フィット感重視で選びましょう。試着時は練習用の靴下を履いて確認するのがポイントです。';
     h+='</div></div>';
     var matching=SHOES.filter(function(s){return foot>=s.sizeCm[0]&&foot<=s.sizeCm[1]})
-      .sort(function(a,b){return(b.reviews*b.rating)-(a.reviews*a.rating)})
+      
       .slice(0,3);
     if(matching.length>0){
       h+='<div class="bsh-sec-label sub">📊 このサイズで人気のバッシュ TOP3</div>';
-      h+='<div style="font-size:11px;color:#64748b;margin-bottom:12px">あなたの足サイズに合うモデルをレビュー数の多い順で表示しています</div>';
+      h+='<div style="font-size:11px;color:#64748b;margin-bottom:12px">あなたの足サイズに合うモデルを表示しています</div>';
       matching.forEach(function(s,i){h+=popularShoeCard(s,i)});
       h+='<a class="bsh-article-cta" href="ARTICLE_SIZE_GUIDE">';
       h+='<div class="bsh-article-cta-label">失敗しないサイズ選び</div>';
