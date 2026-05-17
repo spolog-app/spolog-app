@@ -209,9 +209,9 @@ function renderDiagResult(){
   top.forEach(function(item,i){h+=shoeCard(item.shoe,i)});
   h+=relatedSection();
   h+='<a class="bsh-article-cta" href="ARTICLE_COMPARE_PRO">';
-  h+='<div class="bsh-article-cta-label">もっと深く知りたい方へ</div>';
-  h+='<div class="bsh-article-cta-text">📘 NBA選手モデル徹底比較ガイド</div>';
-  h+='<div class="bsh-article-cta-arrow">全シグネチャーモデルの詳細・歴代の名作も →</div>';
+  h+='<div class="bsh-article-cta-label">📘 2026年最新版</div>';
+  h+='<div class="bsh-article-cta-text">バッシュおすすめ17選</div>';
+  h+='<div class="bsh-article-cta-arrow">ミニバス・中学生・高校生・社会人におすすめモデルを紹介 →</div>';
   h+='</a>';
   h+='<button class="bsh-retry" id="bsh-retry">← 条件を変えてもう一度</button>';
   h+='<div class="bsh-note">※ 購入リンクをクリックすると当サイトに紹介料が入る場合があります（価格に変動はありません）。<br>※ サイズは目安です。購入前の試着を強くおすすめします。</div>';
