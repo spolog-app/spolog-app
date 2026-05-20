@@ -229,11 +229,21 @@ function relatedSection(){
   h+='<div class="bsh-related-sub">バッシュと一緒に揃えてパフォーマンスをさらに引き上げる</div>';
   h+='<div class="bsh-related-grid">';
   RELATED.forEach(function(r){
-    h+='<a class="bsh-related-item" href="'+(r.amzHtml?(parseLinkHtml(r.amzHtml).clickUrl||('AFFILIATE_AMAZON_'+r.id)):(r.amzUrl||('AFFILIATE_AMAZON_'+r.id)))+'" target="_blank" rel="nofollow noopener">';
-    h+='<div class="bsh-related-icon">'+r.icon+'</div>';
-    h+='<div class="bsh-related-name">'+r.name+'</div>';
-    h+='<div class="bsh-related-price">'+r.price+'</div>';
-    h+='</a>';
+    var hasLink=!!r.amzHtml;
+    if(hasLink){
+      var rUrl=parseLinkHtml(r.amzHtml).clickUrl||('AFFILIATE_AMAZON_'+r.id);
+      h+='<a class="bsh-related-item" href="'+rUrl+'" target="_blank" rel="nofollow noopener">';
+      h+='<div class="bsh-related-icon">'+r.icon+'</div>';
+      h+='<div class="bsh-related-name">'+r.name+'</div>';
+      h+='<div class="bsh-related-price">'+r.price+'</div>';
+      h+='</a>';
+    }else{
+      h+='<div class="bsh-related-item bsh-related-preparing">';
+      h+='<div class="bsh-related-icon" style="opacity:0.6">'+r.icon+'</div>';
+      h+='<div class="bsh-related-name" style="opacity:0.7">'+r.name+'</div>';
+      h+='<div class="bsh-related-price" style="color:#94a3b8;font-weight:600">🔧 リンク準備中</div>';
+      h+='</div>';
+    }
   });
   h+='</div></div>';
   return h;
