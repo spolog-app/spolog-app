@@ -238,7 +238,7 @@ function renderDiagResult(){
   var h='<div class="bsh-sec-label">YOUR BEST MATCH</div>';
   top.forEach(function(item,i){h+=shoeCard(item.shoe,i)});
   h+=relatedSection();
-  h+='<a class="bsh-article-cta" href="ARTICLE_COMPARE">';
+  h+='<a class="bsh-article-cta" href="https://spolog-basketball.com/junior-high-school-basketball-shoes/" target="_blank" rel="noopener">';
   h+='<div class="bsh-article-cta-label">📘 2026年最新版</div>';
   h+='<div class="bsh-article-cta-text">バッシュおすすめ20選</div>';
   h+='<div class="bsh-article-cta-arrow">ミニバス・中学生・高校生・社会人におすすめモデルを紹介 →</div>';
