@@ -2,6 +2,14 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30W0QDPTB4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-30W0QDPTB4');
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="description" content="ミニバス〜中学生のお子様向け、6つの質問でぴったりのバスケットボールシューズを診断。Amazon・楽天で最安値比較も。">
 <!-- OGP / Twitter Card -->
@@ -256,5 +264,43 @@ button,a{border:none;background:none;color:inherit;cursor:pointer;font-family:in
 </div>
 
 <script src="bashu-kids.js"></script>
+<!-- アフィリエイト・記事リンクのクリック計測 (GA4) -->
+<script>
+(function(){
+  var DIAG_TYPE = 'kids';
+  function ev(name, params){ if (typeof gtag === 'function') gtag('event', name, params); }
+  function txt(el){ return el ? (el.textContent || '').replace(/\s+/g,' ').trim() : ''; }
+  function storeOf(a){
+    if (a.classList.contains('amz')) return 'amazon';
+    if (a.classList.contains('rktn')) return 'rakuten';
+    if (a.classList.contains('yahoo')) return 'yahoo';
+    var h = a.getAttribute('href') || '';
+    if (/rakuten/i.test(h)) return 'rakuten';
+    if (/yahoo/i.test(h)) return 'yahoo';
+    if (/amazon|amzn/i.test(h)) return 'amazon';
+    return 'other';
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    if (a.classList.contains('bsh-rc-link')){
+      var c = a.closest('.bsh-result-card');
+      ev('affiliate_click', { store: storeOf(a), link_type: 'result', diagnosis_type: DIAG_TYPE,
+        item_brand: txt(c && c.querySelector('.bsh-rc-brand')), item_name: txt(c && c.querySelector('.bsh-rc-name')) });
+    } else if (a.classList.contains('bsh-related-item')){
+      ev('affiliate_click', { store: storeOf(a), link_type: 'related', diagnosis_type: DIAG_TYPE,
+        item_name: txt(a.querySelector('.bsh-related-name')) });
+    } else if (a.classList.contains('bsh-popular-card')){
+      ev('affiliate_click', { store: storeOf(a), link_type: 'popular', diagnosis_type: DIAG_TYPE,
+        item_brand: txt(a.querySelector('.bsh-popular-brand')), item_name: txt(a.querySelector('.bsh-popular-name')) });
+    } else if (a.classList.contains('bsh-rc-review')){
+      var rc = a.closest('.bsh-result-card');
+      ev('review_click', { diagnosis_type: DIAG_TYPE, item_name: txt(rc && rc.querySelector('.bsh-rc-name')) });
+    } else if (a.classList.contains('bsh-article-cta')){
+      ev('article_cta_click', { diagnosis_type: DIAG_TYPE, item_name: txt(a) });
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>

@@ -2,6 +2,14 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30W0QDPTB4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-30W0QDPTB4');
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="description" content="すぽろぐアプリ集｜バスケットボール関連の無料診断アプリ・便利アプリを提供。バッシュ診断、ポジション診断、バスケクイズなど。">
 <!-- OGP / Twitter Card -->
@@ -198,5 +206,21 @@ a{text-decoration:none;color:inherit}
 </div>
 
 </div>
+<!-- 診断アプリ選択のクリック計測 (GA4) -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a.app') : null;
+    if (!a || a.classList.contains('coming') || typeof gtag !== 'function') return;
+    var href = a.getAttribute('href') || '';
+    var type = /pro/i.test(href) ? 'pro' : (/kids/i.test(href) ? 'kids' : 'other');
+    var t = a.querySelector('.app-title');
+    gtag('event', 'select_diagnosis', {
+      diagnosis_type: type,
+      item_name: t ? (t.textContent || '').replace(/\s+/g,' ').trim() : ''
+    });
+  }, true);
+})();
+</script>
 </body>
 </html>
